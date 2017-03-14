@@ -1,0 +1,53 @@
+digraph{
+rankdir=LR
+node[shape=circle style=filled fillcolor="#FFFFFF"] 
+node[shape=box style=filled fillcolor="#CCFFCC" fontname="helvetica"] 
+"1.A"
+"1.B"
+"1.C"
+node[shape=circle style=filled fillcolor="#FFFFFF"] 
+node[shape=octagon style=filled fillcolor="#FFFFCC" fontname="helvetica"] 
+"2.B"
+"2.A"
+"2.F"
+edge[style=solid color="#000000" constraint=true penwidth=1]
+edge[style=solid color="#000000" constraint=true penwidth=1]
+"1.A" -> "1.B" [dir=back]
+"1.A" -> "1.C" [dir=back]
+edge[style=solid color="#000000" constraint=true penwidth=1]
+edge[style=solid color="#000000" constraint=true penwidth=1]
+"2.B" -> "2.A"
+"2.F" -> "2.A"
+edge[style=solid color="#000000" constraint=true penwidth=1]
+edge[style=dashed color="#AA00FF" constraint=true penwidth=1 arrowhead=none]
+"1.A" -> "2.A" [label="=="]
+"1.B" -> "2.B" [label="=="]
+"1.C" -> "2.F" [label="=="]
+node[shape=box] 
+{rank=source Legend [fillcolor= white margin=0 label=< 
+ <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4"> 
+<TR> <TD COLSPAN="2"><font face="Arial Black"> Nodes</font></TD> </TR> 
+<TR> 
+ <TD bgcolor="#CCFFCC" fontname="helvetica">1</TD> 
+ <TD>3</TD> 
+ </TR> 
+<TR> 
+ <TD bgcolor="#FFFFCC" fontname="helvetica">2</TD> 
+ <TD>3</TD> 
+ </TR> 
+<TR> <TD COLSPAN="2"><font face = "Arial Black"> Edges </font></TD> </TR> 
+<TR> 
+ <TD><font color ="#000000">isa_1</font></TD> 
+ <TD>2</TD> 
+ </TR> 
+<TR> 
+ <TD><font color ="#000000">isa_2</font></TD> 
+ <TD>2</TD> 
+ </TR> 
+<TR> 
+ <TD><font color ="#AA00FF">Art.</font></TD> 
+ <TD>3</TD> 
+ </TR> 
+</TABLE> 
+ >] } 
+}
