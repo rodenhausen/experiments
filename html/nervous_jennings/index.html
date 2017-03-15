@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title id="title">
+Tap: nervous_jennings
+  </title>
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet"/>
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" rel="stylesheet"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+  <script charset="utf-8" src="https://d3js.org/d3.v3.min.js">
+  </script>
+  <script id="dataAdjacency" type="text/json">
+   {"directed": true, "graph": {}, "nodes": [{"group": "NDC", "id": "NDC.ID"}, {"group": "NDC", "id": "NDC.IA"}, {"group": "NDC", "id": "NDC.AZ"}, {"group": "CEN", "id": "CEN.AR"}, {"group": "NDC", "id": "NDC.IL"}, {"group": "NDC", "id": "NDC.IN"}, {"group": "NDC", "id": "NDC.AR"}, {"group": "CEN", "id": "CEN.AZ"}, {"group": "NDC", "id": "NDC.AL"}, {"group": "CEN", "id": "CEN.AL"}, {"group": "CEN", "id": "CEN.NY"}, {"group": "CEN", "id": "CEN.AK"}, {"group": "NDC", "id": "NDC.West"}, {"group": "CEN", "id": "CEN.IN"}, {"group": "CEN", "id": "CEN.ID"}, {"group": "NDC", "id": "NDC.PA"}, {"group": "CEN", "id": "CEN.IA"}, {"group": "NDC", "id": "NDC.Southeast"}, {"group": "CEN", "id": "CEN.HI"}, {"group": "CEN", "id": "CEN.NV"}, {"group": "NDC", "id": "NDC.VT"}, {"group": "CEN", "id": "CEN.CT"}, {"group": "NDC", "id": "NDC.GA"}, {"group": "CEN", "id": "CEN.CO"}, {"group": "NDC", "id": "NDC.VA"}, {"group": "CEN", "id": "CEN.CA"}, {"group": "NDC", "id": "NDC.NV"}, {"group": "CEN", "id": "CEN.TN"}, {"group": "NDC", "id": "NDC.WY"}, {"group": "NDC", "id": "NDC.NY"}, {"group": "CEN", "id": "CEN.KY"}, {"group": "NDC", "id": "NDC.NE"}, {"group": "NDC", "id": "NDC.ND"}, {"group": "CEN", "id": "CEN.TX"}, {"group": "NDC", "id": "NDC.NC"}, {"group": "CEN", "id": "CEN.Northeast"}, {"group": "NDC", "id": "NDC.NM"}, {"group": "NDC", "id": "NDC.NH"}, {"group": "NDC", "id": "NDC.NJ"}, {"group": "CEN", "id": "CEN.VT"}, {"group": "CEN", "id": "CEN.IL"}, {"group": "NDC", "id": "NDC.WV"}, {"group": "NDC", "id": "NDC.WI"}, {"group": "NDC", "id": "NDC.WA"}, {"group": "CEN", "id": "CEN.South"}, {"group": "NDC", "id": "NDC.OR"}, {"group": "CEN", "id": "CEN.SD"}, {"group": "CEN", "id": "CEN.SC"}, {"group": "CEN", "id": "CEN.RI"}, {"group": "NDC", "id": "NDC.OK"}, {"group": "NDC", "id": "NDC.OH"}, {"group": "CEN", "id": "CEN.Midwest"}, {"group": "CEN", "id": "CEN.MS"}, {"group": "CEN", "id": "CEN.MT"}, {"group": "NDC", "id": "NDC.TN"}, {"group": "CEN", "id": "CEN.MA"}, {"group": "CEN", "id": "CEN.USA"}, {"group": "CEN", "id": "CEN.ME"}, {"group": "CEN", "id": "CEN.VA"}, {"group": "CEN", "id": "CEN.MI"}, {"group": "CEN", "id": "CEN.MO"}, {"group": "NDC", "id": "NDC.TX"}, {"group": "NDC", "id": "NDC.FL"}, {"group": "NDC", "id": "NDC.UT"}, {"group": "NDC", "id": "NDC.KY"}, {"group": "NDC", "id": "NDC.ME"}, {"group": "CEN", "id": "CEN.DC"}, {"group": "CEN", "id": "CEN.DE"}, {"group": "NDC", "id": "NDC.USA"}, {"group": "NDC", "id": "NDC.MS"}, {"group": "NDC", "id": "NDC.MT"}, {"group": "CEN", "id": "CEN.MD"}, {"group": "NDC", "id": "NDC.MA"}, {"group": "CEN", "id": "CEN.LA"}, {"group": "NDC", "id": "NDC.MD"}, {"group": "NDC", "id": "NDC.LA"}, {"group": "NDC", "id": "NDC.MI"}, {"group": "CEN", "id": "CEN.MN"}, {"group": "CEN", "id": "CEN.UT"}, {"group": "NDC", "id": "NDC.MN"}, {"group": "NDC", "id": "NDC.MO"}, {"group": "NDC", "id": "NDC.CT"}, {"group": "NDC", "id": "NDC.CA"}, {"group": "NDC", "id": "NDC.CO"}, {"group": "NDC", "id": "NDC.Midwest"}, {"group": "CEN", "id": "CEN.GA"}, {"group": "CEN", "id": "CEN.PA"}, {"group": "NDC", "id": "NDC.RI"}, {"group": "CEN", "id": "CEN.OR"}, {"group": "CEN", "id": "CEN.OK"}, {"group": "CEN", "id": "CEN.OH"}, {"group": "CEN", "id": "CEN.West"}, {"group": "NDC", "id": "NDC.DE"}, {"group": "CEN", "id": "CEN.KS"}, {"group": "NDC", "id": "NDC.Northeast"}, {"group": "NDC", "id": "NDC.SC"}, {"group": "NDC", "id": "NDC.Southwest"}, {"group": "CEN", "id": "CEN.WV"}, {"group": "NDC", "id": "NDC.SD"}, {"group": "CEN", "id": "CEN.FL"}, {"group": "NDC", "id": "NDC.KS"}, {"group": "CEN", "id": "CEN.WY"}, {"group": "CEN", "id": "CEN.NM"}, {"group": "CEN", "id": "CEN.WA"}, {"group": "CEN", "id": "CEN.NH"}, {"group": "CEN", "id": "CEN.NJ"}, {"group": "CEN", "id": "CEN.ND"}, {"group": "CEN", "id": "CEN.NE"}, {"group": "CEN", "id": "CEN.WI"}, {"group": "CEN", "id": "CEN.NC"}], "links": [{"source": 0, "relation": "taxonomy_incoming.NDC", "target": 12, "key": 0}, {"source": 0, "relation": "equals", "target": 14, "key": 0}, {"source": 1, "relation": "equals", "target": 16, "key": 0}, {"source": 1, "relation": "taxonomy_incoming.NDC", "target": 84, "key": 0}, {"source": 2, "relation": "taxonomy_incoming.NDC", "target": 96, "key": 0}, {"source": 2, "relation": "equals", "target": 7, "key": 0}, {"source": 3, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 3, "relation": "equals", "target": 6, "key": 0}, {"source": 4, "relation": "equals", "target": 40, "key": 0}, {"source": 4, "relation": "taxonomy_incoming.NDC", "target": 84, "key": 0}, {"source": 5, "relation": "equals", "target": 13, "key": 0}, {"source": 5, "relation": "taxonomy_incoming.NDC", "target": 84, "key": 0}, {"source": 6, "relation": "taxonomy_incoming.NDC", "target": 17, "key": 0}, {"source": 6, "relation": "equals", "target": 3, "key": 0}, {"source": 7, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 7, "relation": "equals", "target": 2, "key": 0}, {"source": 8, "relation": "equals", "target": 9, "key": 0}, {"source": 8, "relation": "taxonomy_incoming.NDC", "target": 17, "key": 0}, {"source": 9, "relation": "equals", "target": 8, "key": 0}, {"source": 9, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 10, "relation": "equals", "target": 29, "key": 0}, {"source": 10, "relation": "taxonomy_incoming.CEN", "target": 35, "key": 0}, {"source": 11, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 12, "relation": "taxonomy_outgoing.NDC", "target": 0, "key": 0}, {"source": 12, "relation": "taxonomy_incoming.NDC", "target": 68, "key": 0}, {"source": 12, "relation": "taxonomy_outgoing.NDC", "target": 26, "key": 0}, {"source": 12, "relation": "taxonomy_outgoing.NDC", "target": 45, "key": 0}, {"source": 12, "relation": "taxonomy_outgoing.NDC", "target": 28, "key": 0}, {"source": 12, "relation": "taxonomy_outgoing.NDC", "target": 63, "key": 0}, {"source": 12, "relation": "taxonomy_outgoing.NDC", "target": 82, "key": 0}, {"source": 12, "relation": "taxonomy_outgoing.NDC", "target": 70, "key": 0}, {"source": 12, "relation": "taxonomy_outgoing.NDC", "target": 83, "key": 0}, {"source": 12, "relation": "taxonomy_outgoing.NDC", "target": 43, "key": 0}, {"source": 13, "relation": "taxonomy_incoming.CEN", "target": 51, "key": 0}, {"source": 13, "relation": "equals", "target": 5, "key": 0}, {"source": 14, "relation": "equals", "target": 0, "key": 0}, {"source": 14, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 15, "relation": "taxonomy_incoming.NDC", "target": 94, "key": 0}, {"source": 15, "relation": "equals", "target": 86, "key": 0}, {"source": 16, "relation": "taxonomy_incoming.CEN", "target": 51, "key": 0}, {"source": 16, "relation": "equals", "target": 1, "key": 0}, {"source": 17, "relation": "taxonomy_outgoing.NDC", "target": 62, "key": 0}, {"source": 17, "relation": "taxonomy_incoming.NDC", "target": 68, "key": 0}, {"source": 17, "relation": "taxonomy_outgoing.NDC", "target": 69, "key": 0}, {"source": 17, "relation": "taxonomy_outgoing.NDC", "target": 95, "key": 0}, {"source": 17, "relation": "taxonomy_outgoing.NDC", "target": 41, "key": 0}, {"source": 17, "relation": "taxonomy_outgoing.NDC", "target": 54, "key": 0}, {"source": 17, "relation": "taxonomy_outgoing.NDC", "target": 6, "key": 0}, {"source": 17, "relation": "taxonomy_outgoing.NDC", "target": 22, "key": 0}, {"source": 17, "relation": "taxonomy_outgoing.NDC", "target": 8, "key": 0}, {"source": 17, "relation": "taxonomy_outgoing.NDC", "target": 64, "key": 0}, {"source": 17, "relation": "taxonomy_outgoing.NDC", "target": 34, "key": 0}, {"source": 17, "relation": "taxonomy_outgoing.NDC", "target": 24, "key": 0}, {"source": 17, "relation": "taxonomy_outgoing.NDC", "target": 75, "key": 0}, {"source": 18, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 19, "relation": "equals", "target": 26, "key": 0}, {"source": 19, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 20, "relation": "taxonomy_incoming.NDC", "target": 94, "key": 0}, {"source": 20, "relation": "equals", "target": 39, "key": 0}, {"source": 21, "relation": "equals", "target": 81, "key": 0}, {"source": 21, "relation": "taxonomy_incoming.CEN", "target": 35, "key": 0}, {"source": 22, "relation": "taxonomy_incoming.NDC", "target": 17, "key": 0}, {"source": 22, "relation": "equals", "target": 85, "key": 0}, {"source": 23, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 23, "relation": "equals", "target": 83, "key": 0}, {"source": 24, "relation": "taxonomy_incoming.NDC", "target": 17, "key": 0}, {"source": 24, "relation": "equals", "target": 58, "key": 0}, {"source": 25, "relation": "equals", "target": 82, "key": 0}, {"source": 25, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 26, "relation": "taxonomy_incoming.NDC", "target": 12, "key": 0}, {"source": 26, "relation": "equals", "target": 19, "key": 0}, {"source": 27, "relation": "equals", "target": 54, "key": 0}, {"source": 27, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 28, "relation": "taxonomy_incoming.NDC", "target": 12, "key": 0}, {"source": 28, "relation": "equals", "target": 101, "key": 0}, {"source": 29, "relation": "taxonomy_incoming.NDC", "target": 94, "key": 0}, {"source": 29, "relation": "equals", "target": 10, "key": 0}, {"source": 30, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 30, "relation": "equals", "target": 64, "key": 0}, {"source": 31, "relation": "equals", "target": 107, "key": 0}, {"source": 31, "relation": "taxonomy_incoming.NDC", "target": 84, "key": 0}, {"source": 32, "relation": "equals", "target": 106, "key": 0}, {"source": 32, "relation": "taxonomy_incoming.NDC", "target": 84, "key": 0}, {"source": 33, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 33, "relation": "equals", "target": 61, "key": 0}, {"source": 34, "relation": "taxonomy_incoming.NDC", "target": 17, "key": 0}, {"source": 34, "relation": "equals", "target": 109, "key": 0}, {"source": 35, "relation": "taxonomy_outgoing.CEN", "target": 39, "key": 0}, {"source": 35, "relation": "taxonomy_outgoing.CEN", "target": 10, "key": 0}, {"source": 35, "relation": "taxonomy_outgoing.CEN", "target": 86, "key": 0}, {"source": 35, "relation": "taxonomy_outgoing.CEN", "target": 48, "key": 0}, {"source": 35, "relation": "taxonomy_outgoing.CEN", "target": 21, "key": 0}, {"source": 35, "relation": "taxonomy_outgoing.CEN", "target": 55, "key": 0}, {"source": 35, "relation": "taxonomy_incoming.CEN", "target": 56, "key": 0}, {"source": 35, "relation": "taxonomy_outgoing.CEN", "target": 104, "key": 0}, {"source": 35, "relation": "taxonomy_outgoing.CEN", "target": 105, "key": 0}, {"source": 35, "relation": "taxonomy_outgoing.CEN", "target": 57, "key": 0}, {"source": 36, "relation": "taxonomy_incoming.NDC", "target": 96, "key": 0}, {"source": 36, "relation": "equals", "target": 102, "key": 0}, {"source": 37, "relation": "taxonomy_incoming.NDC", "target": 94, "key": 0}, {"source": 37, "relation": "equals", "target": 104, "key": 0}, {"source": 38, "relation": "taxonomy_incoming.NDC", "target": 94, "key": 0}, {"source": 38, "relation": "equals", "target": 105, "key": 0}, {"source": 39, "relation": "equals", "target": 20, "key": 0}, {"source": 39, "relation": "taxonomy_incoming.CEN", "target": 35, "key": 0}, {"source": 40, "relation": "taxonomy_incoming.CEN", "target": 51, "key": 0}, {"source": 40, "relation": "equals", "target": 4, "key": 0}, {"source": 41, "relation": "taxonomy_incoming.NDC", "target": 17, "key": 0}, {"source": 41, "relation": "equals", "target": 97, "key": 0}, {"source": 42, "relation": "equals", "target": 108, "key": 0}, {"source": 42, "relation": "taxonomy_incoming.NDC", "target": 84, "key": 0}, {"source": 43, "relation": "taxonomy_incoming.NDC", "target": 12, "key": 0}, {"source": 43, "relation": "equals", "target": 103, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 85, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 52, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 27, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 97, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 58, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 3, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 99, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 47, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 33, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 30, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 89, "key": 0}, {"source": 44, "relation": "taxonomy_incoming.CEN", "target": 56, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 73, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 71, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 66, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 9, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 67, "key": 0}, {"source": 44, "relation": "taxonomy_outgoing.CEN", "target": 109, "key": 0}, {"source": 45, "relation": "taxonomy_incoming.NDC", "target": 12, "key": 0}, {"source": 45, "relation": "equals", "target": 88, "key": 0}, {"source": 46, "relation": "taxonomy_incoming.CEN", "target": 51, "key": 0}, {"source": 46, "relation": "equals", "target": 98, "key": 0}, {"source": 47, "relation": "equals", "target": 95, "key": 0}, {"source": 47, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 48, "relation": "equals", "target": 87, "key": 0}, {"source": 48, "relation": "taxonomy_incoming.CEN", "target": 35, "key": 0}, {"source": 49, "relation": "taxonomy_incoming.NDC", "target": 96, "key": 0}, {"source": 49, "relation": "equals", "target": 89, "key": 0}, {"source": 50, "relation": "equals", "target": 90, "key": 0}, {"source": 50, "relation": "taxonomy_incoming.NDC", "target": 84, "key": 0}, {"source": 51, "relation": "taxonomy_outgoing.CEN", "target": 40, "key": 0}, {"source": 51, "relation": "taxonomy_outgoing.CEN", "target": 13, "key": 0}, {"source": 51, "relation": "taxonomy_outgoing.CEN", "target": 93, "key": 0}, {"source": 51, "relation": "taxonomy_outgoing.CEN", "target": 46, "key": 0}, {"source": 51, "relation": "taxonomy_outgoing.CEN", "target": 16, "key": 0}, {"source": 51, "relation": "taxonomy_outgoing.CEN", "target": 59, "key": 0}, {"source": 51, "relation": "taxonomy_incoming.CEN", "target": 56, "key": 0}, {"source": 51, "relation": "taxonomy_outgoing.CEN", "target": 90, "key": 0}, {"source": 51, "relation": "taxonomy_outgoing.CEN", "target": 106, "key": 0}, {"source": 51, "relation": "taxonomy_outgoing.CEN", "target": 107, "key": 0}, {"source": 51, "relation": "taxonomy_outgoing.CEN", "target": 108, "key": 0}, {"source": 51, "relation": "taxonomy_outgoing.CEN", "target": 60, "key": 0}, {"source": 51, "relation": "taxonomy_outgoing.CEN", "target": 77, "key": 0}, {"source": 52, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 52, "relation": "equals", "target": 69, "key": 0}, {"source": 53, "relation": "equals", "target": 70, "key": 0}, {"source": 53, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 54, "relation": "taxonomy_incoming.NDC", "target": 17, "key": 0}, {"source": 54, "relation": "equals", "target": 27, "key": 0}, {"source": 55, "relation": "equals", "target": 72, "key": 0}, {"source": 55, "relation": "taxonomy_incoming.CEN", "target": 35, "key": 0}, {"source": 56, "relation": "taxonomy_outgoing.CEN", "target": 51, "key": 0}, {"source": 56, "relation": "taxonomy_outgoing.CEN", "target": 44, "key": 0}, {"source": 56, "relation": "taxonomy_outgoing.CEN", "target": 91, "key": 0}, {"source": 56, "relation": "taxonomy_outgoing.CEN", "target": 35, "key": 0}, {"source": 57, "relation": "equals", "target": 65, "key": 0}, {"source": 57, "relation": "taxonomy_incoming.CEN", "target": 35, "key": 0}, {"source": 58, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 58, "relation": "equals", "target": 24, "key": 0}, {"source": 59, "relation": "taxonomy_incoming.CEN", "target": 51, "key": 0}, {"source": 59, "relation": "equals", "target": 76, "key": 0}, {"source": 60, "relation": "taxonomy_incoming.CEN", "target": 51, "key": 0}, {"source": 60, "relation": "equals", "target": 80, "key": 0}, {"source": 61, "relation": "taxonomy_incoming.NDC", "target": 96, "key": 0}, {"source": 61, "relation": "equals", "target": 33, "key": 0}, {"source": 62, "relation": "equals", "target": 99, "key": 0}, {"source": 62, "relation": "taxonomy_incoming.NDC", "target": 17, "key": 0}, {"source": 63, "relation": "taxonomy_incoming.NDC", "target": 12, "key": 0}, {"source": 63, "relation": "equals", "target": 78, "key": 0}, {"source": 64, "relation": "taxonomy_incoming.NDC", "target": 17, "key": 0}, {"source": 64, "relation": "equals", "target": 30, "key": 0}, {"source": 65, "relation": "taxonomy_incoming.NDC", "target": 94, "key": 0}, {"source": 65, "relation": "equals", "target": 57, "key": 0}, {"source": 66, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 67, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 67, "relation": "equals", "target": 92, "key": 0}, {"source": 68, "relation": "taxonomy_outgoing.NDC", "target": 12, "key": 0}, {"source": 68, "relation": "taxonomy_outgoing.NDC", "target": 94, "key": 0}, {"source": 68, "relation": "taxonomy_outgoing.NDC", "target": 17, "key": 0}, {"source": 68, "relation": "taxonomy_outgoing.NDC", "target": 96, "key": 0}, {"source": 68, "relation": "taxonomy_outgoing.NDC", "target": 84, "key": 0}, {"source": 69, "relation": "taxonomy_incoming.NDC", "target": 17, "key": 0}, {"source": 69, "relation": "equals", "target": 52, "key": 0}, {"source": 70, "relation": "taxonomy_incoming.NDC", "target": 12, "key": 0}, {"source": 70, "relation": "equals", "target": 53, "key": 0}, {"source": 71, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 71, "relation": "equals", "target": 74, "key": 0}, {"source": 72, "relation": "taxonomy_incoming.NDC", "target": 94, "key": 0}, {"source": 72, "relation": "equals", "target": 55, "key": 0}, {"source": 73, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 73, "relation": "equals", "target": 75, "key": 0}, {"source": 74, "relation": "taxonomy_incoming.NDC", "target": 94, "key": 0}, {"source": 74, "relation": "equals", "target": 71, "key": 0}, {"source": 75, "relation": "taxonomy_incoming.NDC", "target": 17, "key": 0}, {"source": 75, "relation": "equals", "target": 73, "key": 0}, {"source": 76, "relation": "equals", "target": 59, "key": 0}, {"source": 76, "relation": "taxonomy_incoming.NDC", "target": 84, "key": 0}, {"source": 77, "relation": "taxonomy_incoming.CEN", "target": 51, "key": 0}, {"source": 77, "relation": "equals", "target": 79, "key": 0}, {"source": 78, "relation": "equals", "target": 63, "key": 0}, {"source": 78, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 79, "relation": "equals", "target": 77, "key": 0}, {"source": 79, "relation": "taxonomy_incoming.NDC", "target": 84, "key": 0}, {"source": 80, "relation": "equals", "target": 60, "key": 0}, {"source": 80, "relation": "taxonomy_incoming.NDC", "target": 84, "key": 0}, {"source": 81, "relation": "taxonomy_incoming.NDC", "target": 94, "key": 0}, {"source": 81, "relation": "equals", "target": 21, "key": 0}, {"source": 82, "relation": "taxonomy_incoming.NDC", "target": 12, "key": 0}, {"source": 82, "relation": "equals", "target": 25, "key": 0}, {"source": 83, "relation": "taxonomy_incoming.NDC", "target": 12, "key": 0}, {"source": 83, "relation": "equals", "target": 23, "key": 0}, {"source": 84, "relation": "taxonomy_incoming.NDC", "target": 68, "key": 0}, {"source": 84, "relation": "taxonomy_outgoing.NDC", "target": 1, "key": 0}, {"source": 84, "relation": "taxonomy_outgoing.NDC", "target": 98, "key": 0}, {"source": 84, "relation": "taxonomy_outgoing.NDC", "target": 4, "key": 0}, {"source": 84, "relation": "taxonomy_outgoing.NDC", "target": 100, "key": 0}, {"source": 84, "relation": "taxonomy_outgoing.NDC", "target": 5, "key": 0}, {"source": 84, "relation": "taxonomy_outgoing.NDC", "target": 31, "key": 0}, {"source": 84, "relation": "taxonomy_outgoing.NDC", "target": 32, "key": 0}, {"source": 84, "relation": "taxonomy_outgoing.NDC", "target": 50, "key": 0}, {"source": 84, "relation": "taxonomy_outgoing.NDC", "target": 42, "key": 0}, {"source": 84, "relation": "taxonomy_outgoing.NDC", "target": 76, "key": 0}, {"source": 84, "relation": "taxonomy_outgoing.NDC", "target": 79, "key": 0}, {"source": 84, "relation": "taxonomy_outgoing.NDC", "target": 80, "key": 0}, {"source": 85, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 85, "relation": "equals", "target": 22, "key": 0}, {"source": 86, "relation": "equals", "target": 15, "key": 0}, {"source": 86, "relation": "taxonomy_incoming.CEN", "target": 35, "key": 0}, {"source": 87, "relation": "taxonomy_incoming.NDC", "target": 94, "key": 0}, {"source": 87, "relation": "equals", "target": 48, "key": 0}, {"source": 88, "relation": "equals", "target": 45, "key": 0}, {"source": 88, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 89, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 89, "relation": "equals", "target": 49, "key": 0}, {"source": 90, "relation": "taxonomy_incoming.CEN", "target": 51, "key": 0}, {"source": 90, "relation": "equals", "target": 50, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 53, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 18, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 14, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 101, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 103, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 7, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 23, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 102, "key": 0}, {"source": 91, "relation": "taxonomy_incoming.CEN", "target": 56, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 19, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 25, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 88, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 78, "key": 0}, {"source": 91, "relation": "taxonomy_outgoing.CEN", "target": 11, "key": 0}, {"source": 92, "relation": "taxonomy_incoming.NDC", "target": 94, "key": 0}, {"source": 92, "relation": "equals", "target": 67, "key": 0}, {"source": 93, "relation": "taxonomy_incoming.CEN", "target": 51, "key": 0}, {"source": 93, "relation": "equals", "target": 100, "key": 0}, {"source": 94, "relation": "taxonomy_incoming.NDC", "target": 68, "key": 0}, {"source": 94, "relation": "taxonomy_outgoing.NDC", "target": 81, "key": 0}, {"source": 94, "relation": "taxonomy_outgoing.NDC", "target": 87, "key": 0}, {"source": 94, "relation": "taxonomy_outgoing.NDC", "target": 20, "key": 0}, {"source": 94, "relation": "taxonomy_outgoing.NDC", "target": 15, "key": 0}, {"source": 94, "relation": "taxonomy_outgoing.NDC", "target": 29, "key": 0}, {"source": 94, "relation": "taxonomy_outgoing.NDC", "target": 72, "key": 0}, {"source": 94, "relation": "taxonomy_outgoing.NDC", "target": 92, "key": 0}, {"source": 94, "relation": "taxonomy_outgoing.NDC", "target": 74, "key": 0}, {"source": 94, "relation": "taxonomy_outgoing.NDC", "target": 65, "key": 0}, {"source": 94, "relation": "taxonomy_outgoing.NDC", "target": 37, "key": 0}, {"source": 94, "relation": "taxonomy_outgoing.NDC", "target": 38, "key": 0}, {"source": 95, "relation": "taxonomy_incoming.NDC", "target": 17, "key": 0}, {"source": 95, "relation": "equals", "target": 47, "key": 0}, {"source": 96, "relation": "taxonomy_outgoing.NDC", "target": 36, "key": 0}, {"source": 96, "relation": "taxonomy_incoming.NDC", "target": 68, "key": 0}, {"source": 96, "relation": "taxonomy_outgoing.NDC", "target": 49, "key": 0}, {"source": 96, "relation": "taxonomy_outgoing.NDC", "target": 2, "key": 0}, {"source": 96, "relation": "taxonomy_outgoing.NDC", "target": 61, "key": 0}, {"source": 97, "relation": "equals", "target": 41, "key": 0}, {"source": 97, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 98, "relation": "equals", "target": 46, "key": 0}, {"source": 98, "relation": "taxonomy_incoming.NDC", "target": 84, "key": 0}, {"source": 99, "relation": "equals", "target": 62, "key": 0}, {"source": 99, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 100, "relation": "equals", "target": 93, "key": 0}, {"source": 100, "relation": "taxonomy_incoming.NDC", "target": 84, "key": 0}, {"source": 101, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 101, "relation": "equals", "target": 28, "key": 0}, {"source": 102, "relation": "equals", "target": 36, "key": 0}, {"source": 102, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 103, "relation": "taxonomy_incoming.CEN", "target": 91, "key": 0}, {"source": 103, "relation": "equals", "target": 43, "key": 0}, {"source": 104, "relation": "equals", "target": 37, "key": 0}, {"source": 104, "relation": "taxonomy_incoming.CEN", "target": 35, "key": 0}, {"source": 105, "relation": "equals", "target": 38, "key": 0}, {"source": 105, "relation": "taxonomy_incoming.CEN", "target": 35, "key": 0}, {"source": 106, "relation": "taxonomy_incoming.CEN", "target": 51, "key": 0}, {"source": 106, "relation": "equals", "target": 32, "key": 0}, {"source": 107, "relation": "taxonomy_incoming.CEN", "target": 51, "key": 0}, {"source": 107, "relation": "equals", "target": 31, "key": 0}, {"source": 108, "relation": "taxonomy_incoming.CEN", "target": 51, "key": 0}, {"source": 108, "relation": "equals", "target": 42, "key": 0}, {"source": 109, "relation": "taxonomy_incoming.CEN", "target": 44, "key": 0}, {"source": 109, "relation": "equals", "target": 34, "key": 0}], "multigraph": true}
+  </script>
+  <script id="dataAdjacency1x1" type="text/json">
+   {"directed": true, "graph": {}, "nodes": [{"id": "NDC.ID"}, {"id": "NDC.IA"}, {"id": "NDC.AZ"}, {"id": "CEN.AR"}, {"id": "NDC.IL"}, {"id": "NDC.IN"}, {"id": "NDC.AR"}, {"id": "CEN.AZ"}, {"id": "NDC.AL"}, {"id": "CEN.AL"}, {"id": "CEN.IL"}, {"id": "CEN.IN"}, {"id": "CEN.RI"}, {"id": "NDC.PA"}, {"id": "CEN.IA"}, {"id": "CEN.WV"}, {"id": "NDC.VT"}, {"id": "CEN.CT"}, {"id": "NDC.GA"}, {"id": "CEN.CO"}, {"id": "NDC.VA"}, {"id": "CEN.CA"}, {"id": "NDC.NV"}, {"id": "CEN.TN"}, {"id": "NDC.NY"}, {"id": "CEN.KY"}, {"id": "NDC.NE"}, {"id": "NDC.ND"}, {"id": "CEN.TX"}, {"id": "NDC.NC"}, {"id": "NDC.NM"}, {"id": "NDC.NH"}, {"id": "NDC.NJ"}, {"id": "NDC.WY"}, {"id": "NDC.WV"}, {"id": "NDC.WI"}, {"id": "NDC.WA"}, {"id": "NDC.OR"}, {"id": "CEN.SD"}, {"id": "CEN.SC"}, {"id": "CEN.ID"}, {"id": "NDC.OK"}, {"id": "NDC.OH"}, {"id": "CEN.WY"}, {"id": "CEN.VT"}, {"id": "CEN.MS"}, {"id": "CEN.MT"}, {"id": "NDC.TN"}, {"id": "CEN.MA"}, {"id": "CEN.ME"}, {"id": "CEN.MD"}, {"id": "CEN.MI"}, {"id": "CEN.MO"}, {"id": "CEN.MN"}, {"id": "NDC.FL"}, {"id": "NDC.UT"}, {"id": "NDC.ME"}, {"id": "CEN.DE"}, {"id": "NDC.MS"}, {"id": "NDC.MT"}, {"id": "NDC.MA"}, {"id": "CEN.LA"}, {"id": "NDC.MD"}, {"id": "NDC.LA"}, {"id": "NDC.MI"}, {"id": "NDC.TX"}, {"id": "CEN.UT"}, {"id": "NDC.MN"}, {"id": "NDC.MO"}, {"id": "NDC.CT"}, {"id": "NDC.CA"}, {"id": "NDC.CO"}, {"id": "CEN.GA"}, {"id": "CEN.PA"}, {"id": "NDC.RI"}, {"id": "CEN.OR"}, {"id": "CEN.OK"}, {"id": "CEN.OH"}, {"id": "CEN.VA"}, {"id": "NDC.DE"}, {"id": "CEN.KS"}, {"id": "NDC.SC"}, {"id": "NDC.KY"}, {"id": "CEN.NY"}, {"id": "NDC.SD"}, {"id": "CEN.FL"}, {"id": "NDC.KS"}, {"id": "CEN.NV"}, {"id": "CEN.NM"}, {"id": "CEN.WA"}, {"id": "CEN.NH"}, {"id": "CEN.NJ"}, {"id": "CEN.ND"}, {"id": "CEN.NE"}, {"id": "CEN.WI"}, {"id": "CEN.NC"}], "links": [{"source": 3, "relation": "equals", "target": 6, "key": 0}, {"source": 7, "relation": "equals", "target": 2, "key": 0}, {"source": 9, "relation": "equals", "target": 8, "key": 0}, {"source": 10, "relation": "equals", "target": 4, "key": 0}, {"source": 11, "relation": "equals", "target": 5, "key": 0}, {"source": 12, "relation": "equals", "target": 74, "key": 0}, {"source": 14, "relation": "equals", "target": 1, "key": 0}, {"source": 15, "relation": "equals", "target": 34, "key": 0}, {"source": 17, "relation": "equals", "target": 69, "key": 0}, {"source": 19, "relation": "equals", "target": 71, "key": 0}, {"source": 21, "relation": "equals", "target": 70, "key": 0}, {"source": 23, "relation": "equals", "target": 47, "key": 0}, {"source": 25, "relation": "equals", "target": 82, "key": 0}, {"source": 28, "relation": "equals", "target": 65, "key": 0}, {"source": 38, "relation": "equals", "target": 84, "key": 0}, {"source": 39, "relation": "equals", "target": 81, "key": 0}, {"source": 40, "relation": "equals", "target": 0, "key": 0}, {"source": 43, "relation": "equals", "target": 33, "key": 0}, {"source": 44, "relation": "equals", "target": 16, "key": 0}, {"source": 45, "relation": "equals", "target": 58, "key": 0}, {"source": 46, "relation": "equals", "target": 59, "key": 0}, {"source": 48, "relation": "equals", "target": 60, "key": 0}, {"source": 49, "relation": "equals", "target": 56, "key": 0}, {"source": 50, "relation": "equals", "target": 62, "key": 0}, {"source": 51, "relation": "equals", "target": 64, "key": 0}, {"source": 52, "relation": "equals", "target": 68, "key": 0}, {"source": 53, "relation": "equals", "target": 67, "key": 0}, {"source": 57, "relation": "equals", "target": 79, "key": 0}, {"source": 61, "relation": "equals", "target": 63, "key": 0}, {"source": 66, "relation": "equals", "target": 55, "key": 0}, {"source": 72, "relation": "equals", "target": 18, "key": 0}, {"source": 73, "relation": "equals", "target": 13, "key": 0}, {"source": 75, "relation": "equals", "target": 37, "key": 0}, {"source": 76, "relation": "equals", "target": 41, "key": 0}, {"source": 77, "relation": "equals", "target": 42, "key": 0}, {"source": 78, "relation": "equals", "target": 20, "key": 0}, {"source": 80, "relation": "equals", "target": 86, "key": 0}, {"source": 83, "relation": "equals", "target": 24, "key": 0}, {"source": 85, "relation": "equals", "target": 54, "key": 0}, {"source": 87, "relation": "equals", "target": 22, "key": 0}, {"source": 88, "relation": "equals", "target": 30, "key": 0}, {"source": 89, "relation": "equals", "target": 36, "key": 0}, {"source": 90, "relation": "equals", "target": 31, "key": 0}, {"source": 91, "relation": "equals", "target": 32, "key": 0}, {"source": 92, "relation": "equals", "target": 27, "key": 0}, {"source": 93, "relation": "equals", "target": 26, "key": 0}, {"source": 94, "relation": "equals", "target": 35, "key": 0}, {"source": 95, "relation": "equals", "target": 29, "key": 0}], "multigraph": true}
+  </script>
+  <style type="text/css">
+   .container {
+	width: initial;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+div#visualization button#zoomin {
+  position: absolute;
+  right: 30px;
+  top: 50px;
+  z-index: 99;
+}
+div#visualization button#zoomout {
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  z-index: 99;
+}	
+div#visualization button#reset {
+  position: absolute;
+  right: 30px;
+  top: 110px;
+  z-index: 99;
+}
+
+
+div#adjacency1x1 text.activeLegend {
+  fill: khaki;
+  font-weight: bold;
+}
+div#adjacency1x1 text.activeTick {
+   fill: khaki;
+   font-weight: bold;
+}
+div#adjacency1x1 button#zoomin {
+  position: absolute;
+  right: 30px;
+  top: 50px;
+  z-index: 99;
+}
+div#adjacency1x1 button#zoomout {
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  z-index: 99;
+}	
+div#adjacency1x1 button#reset {
+  position: absolute;
+  right: 30px;
+  top: 110px;
+  z-index: 99;
+}
+
+
+div#adjacency text.activeLegend {
+  fill: khaki;
+  font-weight: bold;
+}
+div#adjacency text.activeTick {
+   fill: khaki;
+   font-weight: bold;
+}
+div#adjacency button#zoomin {
+  position: absolute;
+  right: 30px;
+  top: 50px;
+  z-index: 99;
+}
+div#adjacency button#zoomout {
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  z-index: 99;
+}	
+div#adjacency button#reset {
+  position: absolute;
+  right: 30px;
+  top: 110px;
+  z-index: 99;
+}
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <ul class="nav nav-tabs">
+    <li class="active">
+     <a data-toggle="tab" href="#cleantax">
+      Cleantax
+     </a>
+    </li>
+    <li>
+     <a data-toggle="tab" href="#visualization">
+      Visualization
+     </a>
+    </li>
+    <li>
+     <a data-toggle="tab" href="#adjacency1x1">
+      Adjacency 1x1
+     </a>
+    </li>
+    <li>
+     <a data-toggle="tab" href="#adjacency">
+      Adjacency
+     </a>
+    </li>
+   </ul>
+   <div class="tab-content">
+    <div class="tab-pane fade in active" id="cleantax">
+     <textarea cols="150" disabled="" id="cleantax-textarea" rows="30">taxonomy CEN Census_Regions
+(USA Midwest Northeast South West)
+(West AK AZ CA CO HI ID MT NM NV OR UT WA WY)
+(South AL AR DC DE FL GA KY LA MD MS NC OK SC TN TX VA WV)
+(Northeast CT MA ME NH NJ NY PA RI VT)
+(Midwest IA IL IN KS MI MN MO ND NE OH SD WI)
+
+taxonomy NDC National_Diversity_Council
+(USA Midwest Northeast Southeast Southwest West)
+(West CA CO ID MT NV OR UT WA WY)
+(Southwest AZ NM OK TX)
+(Southeast AL AR FL GA KY LA MS NC SC TN VA WV)
+(Northeast CT DE MA MD ME NH NJ NY PA RI VT)
+(Midwest IA IL IN KS MI MN MO ND NE OH SD WI)
+
+articulation
+[CEN.AL equals NDC.AL]
+[CEN.AR equals NDC.AR]
+[CEN.AZ equals NDC.AZ]
+[CEN.CA equals NDC.CA]
+[CEN.CO equals NDC.CO]
+[CEN.CT equals NDC.CT]
+[CEN.DE equals NDC.DE]
+[CEN.FL equals NDC.FL]
+[CEN.GA equals NDC.GA]
+[CEN.IA equals NDC.IA]
+[CEN.ID equals NDC.ID]
+[CEN.IL equals NDC.IL]
+[CEN.IN equals NDC.IN]
+[CEN.KS equals NDC.KS]
+[CEN.KY equals NDC.KY]
+[CEN.LA equals NDC.LA]
+[CEN.MA equals NDC.MA]
+[CEN.MD equals NDC.MD]
+[CEN.ME equals NDC.ME]
+[CEN.MI equals NDC.MI]
+[CEN.MN equals NDC.MN]
+[CEN.MO equals NDC.MO]
+[CEN.MS equals NDC.MS]
+[CEN.MT equals NDC.MT]
+[CEN.NC equals NDC.NC]
+[CEN.ND equals NDC.ND]
+[CEN.NE equals NDC.NE]
+[CEN.NH equals NDC.NH]
+[CEN.NJ equals NDC.NJ]
+[CEN.NM equals NDC.NM]
+[CEN.NV equals NDC.NV]
+[CEN.NY equals NDC.NY]
+[CEN.OH equals NDC.OH]
+[CEN.OK equals NDC.OK]
+[CEN.OR equals NDC.OR]
+[CEN.PA equals NDC.PA]
+[CEN.RI equals NDC.RI]
+[CEN.SC equals NDC.SC]
+[CEN.SD equals NDC.SD]
+[CEN.TN equals NDC.TN]
+[CEN.TX equals NDC.TX]
+[CEN.UT equals NDC.UT]
+[CEN.VA equals NDC.VA]
+[CEN.VT equals NDC.VT]
+[CEN.WA equals NDC.WA]
+[CEN.WI equals NDC.WI]
+[CEN.WV equals NDC.WV]
+[CEN.WY equals NDC.WY]
+</textarea>
+    </div>
+    <div class="tab-pane fade" id="visualization">
+     <button id="zoomin">
+      Zoom in
+     </button>
+     <button id="zoomout">
+      Zoom out
+     </button>
+     <button id="reset">
+      Reset
+     </button>
+    </div>
+    <div class="tab-pane fade" id="adjacency1x1">
+     <button id="zoomin">
+      Zoom in
+     </button>
+     <button id="zoomout">
+      Zoom out
+     </button>
+     <button id="reset">
+      Reset
+     </button>
+    </div>
+    <div class="tab-pane fade" id="adjacency">
+     <button id="zoomin">
+      Zoom in
+     </button>
+     <button id="zoomout">
+      Zoom out
+     </button>
+     <button id="reset">
+      Reset
+     </button>
+    </div>
+   </div>
+  </div>
+  <script id="visualization">
+   createVisualization();
+function createVisualization() {
+	var size = {
+	  width: document.body.clientWidth || window.innerWidth,
+	  height: document.body.clientHeight || window.innerHeight
+	}
+
+	var oldSvg = d3.select("div#visualization svg")
+	var graphG = d3.select("div#visualization svg g.graph");
+	oldSvg.remove();
+
+	var margin = {top: 0, right: 0, bottom: 0, left: 0},
+		width = size['width'] - margin.left - margin.right,
+		height = size['height'] - 1 - margin.top - margin.bottom;
+
+	var x = d3.scale.linear()
+		.domain([-width / 2, width / 2])
+		.range([0, width]);
+
+	var y = d3.scale.linear()
+		.domain([-height / 2, height / 2])
+		.range([height, 0]);
+
+	var zoom = d3.behavior.zoom()
+		.x(x)
+		.y(y)
+		.scaleExtent([0.1, 32])
+		.on("zoom", zoom);
+
+	var svg = d3.select("#visualization").append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		.call(zoom)
+		.append(function() {
+			return graphG.node();
+		});
+
+	function zoom() {
+		x = d3.event.translate[0]
+		y = d3.event.translate[1]
+		graphG.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+	}
+
+
+	d3.select("div#visualization button#reset").on("click", reset);
+	d3.select("div#visualization button#zoomin").on("click", zoomIn);
+	d3.select("div#visualization button#zoomout").on("click", zoomOut);
+
+	var originalWidth = Number(oldSvg.attr("width").slice(0, -2));
+	var originalHeight = Number(oldSvg.attr("width").slice(0, -2));
+	initialScale = Math.min(width/originalWidth, height/originalHeight) * 0.7
+	var t = d3.transform(graphG.attr("transform")),
+			initialX = (size['width'] - (initialScale * originalWidth))/2, //t.translate[0],
+			initialY = size['height'] * 0.8, //t.translate[1],
+			initialS = initialScale; //t.scale[0];
+			
+	function zoomIn() {
+		var t = d3.transform(graphG.attr("transform")),
+			x = t.translate[0],
+			y = t.translate[1],
+			s = t.scale[0];
+		var newScale = (s + 0.1);
+		zoom.scale(newScale)
+		graphG.attr("transform", "translate(" + x + " ," + y + ") scale(" + newScale + ")");
+	}
+
+	function zoomOut() {
+		var t = d3.transform(graphG.attr("transform")),
+			x = t.translate[0],
+			y = t.translate[1],
+			s = t.scale[0];
+		var newScale = (s - 0.1);
+		zoom.scale(newScale)
+		graphG.attr("transform", "translate(" + x + " ," + y + ") scale(" + newScale + ")");
+	}
+
+	function reset() {
+		initialTranslate = [initialX, initialY];
+		zoom.translate(initialTranslate);
+		zoom.scale(initialS)
+		graphG.attr("transform", "translate(" + initialX + " ," + initialY + ") scale(" + initialS + ")");
+	}
+
+	reset(); //removes the random jump after first click issue
+}
+  </script>
+  <script id="adjacency1x1">
+   createAdjacency1x1Matrix();
+
+function createAdjacency1x1Matrix() {
+	var size = {
+	  width: document.body.clientWidth || window.innerWidth,
+	  height: document.body.clientHeight || window.innerHeight
+	}
+
+	var margin = {top: 0, right: 0, bottom: 0, left: 0},
+		width = size['width'] - margin.left - margin.right,
+		height = size['height'] - 1 - margin.top - margin.bottom;
+
+	var x = d3.scale.linear()
+		.domain([-width / 2, width / 2])
+		.range([0, width]);
+
+	var y = d3.scale.linear()
+		.domain([-height / 2, height / 2])
+		.range([height, 0]);
+
+	var zoom = d3.behavior.zoom()
+		.x(x)
+		.y(y)
+		.scaleExtent([0.1, 32])
+		.on("zoom", zoom);
+
+	var canvas = d3.select("#adjacency1x1").append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		.call(zoom);
+
+	var content = canvas.append("g");
+		
+	var cellWidth = 25;
+
+	var data = JSON.parse(document.getElementById('dataAdjacency1x1').innerHTML);
+
+	/*var i = data['links'].length
+	while (i--) {
+		l = data['links'][i];
+		if (l.relation.startsWith("taxonomy")) {
+			data['links'].splice(i, 1);
+		}
+	}*/
+
+	//sort nodes
+	for (i in data['links']) {
+		l = data['links'][i];
+		l.source = data['nodes'][l.source].id
+		l.target = data['nodes'][l.target].id
+	}
+	data['nodes'] = data['nodes'].sort(function(a, b) { 
+										return d3.ascending(a.id, b.id); 
+								});
+		
+	groupNodes = { }
+	for (i in data['nodes']) {
+		n = data['nodes'][i];
+		id = n.group;
+		if (id in groupNodes) {
+			groupNodes[id].push(n);
+		} else {
+			groupNodes[id] = [];
+			groupNodes[id].push(n);
+		}
+	}
+	if(Object.keys(groupNodes).length != 2) {
+		return;
+	}
+	dataNodesA = groupNodes[Object.keys(groupNodes)[0]]
+	dataNodesB = groupNodes[Object.keys(groupNodes)[1]]
+						
+	//sort links for legend
+	data['links'] = data['links'].sort(function(a, b) { 
+									if(a.relation.startsWith("taxonomy") && b.relation.startsWith("taxonomy")) {
+										idA = a.relation.split(".")[1];
+										idB = b.relation.split(".")[1];
+										if (idA == idB) {
+											return d3.ascending(a.relation, b.relation);
+										}
+										return d3.ascending(idA, idB);
+									}
+									return d3.ascending(a.relation, b.relation); 
+								});
+	for (i in data['links']) {
+		l = data['links'][i];
+		l.source = dataNodesA.map(function (n) {
+										return n.id;
+									}).indexOf(l.source)
+		l.target = dataNodesB.map(function (n) {
+										return n.id;
+									}).indexOf(l.target)
+	}
+
+	var linksMap = { };
+	for (i in data['links']) {
+		var l = data['links'][i];
+		linksMap[l.source + ";" + l.target] = l;
+	}
+	var cells = [];
+	for (i in dataNodesA) {
+		for (j in dataNodesB) {
+			var id = i + ";" + j;
+			cells.push({ 
+						id: id,
+						source: i, 
+						target: j, 
+						relation: id in linksMap ? linksMap[id].relation : ""
+					});
+		}
+	}
+	/*
+	c20 = d3.scale.category20();
+	colorIndex = 0;
+	var colors = { 
+			"" : "white",
+			"equals" : c20(colorIndex++),
+			"disjoint" : c20(colorIndex++),
+			"includes" : c20(colorIndex++),
+			"is_included_in" : c20(colorIndex++),
+			"overlaps" : c20(colorIndex++)
+	}
+	*/
+
+	var colors = {
+		"" : "white",
+		"equals" : "#7f7f7f", //dark gray
+		"disjoint" : "#c7c7c7", //light gray
+		"includes" : "#e6550d", //dark orange
+		"is_included_in" : "#fd8d3c", //light orange
+		"overlaps" : "#d62728" //red
+	}
+
+	//var taxonomyPairColors = ["#393b79", "#5254a3", "#637939", "#8ca252", "#8c6d31", "#bd9e39", "#843c39", "#ad494a", "#7b4173", "#a55194"];
+	//colorIndex = 0;
+	for (i in data['links']) {
+		var l = data['links'][i];
+		/*if (!(l.relation in colors)) {
+			colors[l.relation] = taxonomyPairColors[colorIndex];
+			colorIndex = colorIndex + 1 % 4;
+		}*/
+		cells.push({ 
+					id: l.source + ";" + l.target, 
+					source: l.source, 
+					target: l.target, 
+					relation: l.relation 
+				});
+	}
+
+	var x = d3.scale.linear()
+		.domain([-width / 2, width / 2])
+		.range([0, width]);
+
+	var y = d3.scale.linear()
+		.domain([-height / 2, height / 2])
+		.range([height, 0]);
+
+	adjacencyView = content.append("g")
+			  .attr("transform", "translate(90,90)");
+			adjacencyView.selectAll("rect")
+			  .data(cells)
+			  .enter()
+			  .append("rect")
+			  .attr("width", cellWidth)
+			  .attr("height", cellWidth)
+			  .attr("x", function (d) {return d.target * cellWidth})
+			  .attr("y", function (d) {return d.source * cellWidth})
+			  .style("fill", function(d) { return colors[d.relation]; })
+			  .style("stroke", "black")
+			  .on("mouseover", mouseover)
+			  .on("mouseout", mouseout);
+			
+	var matrixScaleA = d3.scale.ordinal()
+						.domain(dataNodesA.map(function (n) {
+											console.log("scalea " + n);
+											return n.id
+										}))
+						.rangePoints([0, dataNodesA.length * cellWidth], 1);
+	var matrixScaleB = d3.scale.ordinal()
+						.domain(dataNodesB.map(function (n) {
+											console.log("scaleb " + n);
+											return n.id
+										}))
+						.rangePoints([0, dataNodesB.length * cellWidth], 1);						
+	/*tickValues = []
+	for (i = 0; i < data['nodes'].length - 2; i++) { 
+		tickValues.push(i * cellWidth + 0.5 * cellWidth)
+	}*/
+	/*for (i in data['nodes']) {
+		console.log(i);
+		console.log(i * cellWidth);
+		console.log(i * cellWidth - 0.5 * cellWidth);
+		tickValues.push(i * cellWidth - 0.5 * cellWidth)
+		
+	}
+	console.log(tickValues);*/
+	xAxis = d3.svg.axis()
+				.scale(matrixScaleB)
+				//.tickValues(tickValues)
+				.orient("top")
+				.tickSize(0); 
+	yAxis = d3.svg.axis()
+				.scale(matrixScaleA)
+				//.tickValues(tickValues)
+				.orient("left")
+				.tickSize(0);    
+	adjacencyView.append("g")
+				.call(xAxis)
+				.selectAll("text")
+				.style("text-anchor", "end")
+				.attr("transform", "translate(-8,-10) rotate(90)");
+	adjacencyView.append("g")
+				.call(yAxis)
+				.attr("transform", "translate(-10, 0)");
+	  
+	function mouseover(d, i) {
+		d3.selectAll("div#adjacency1x1 rect")
+			/*.style("stroke", function(o) {
+				return (o.source == d.source || o.target == d.target) ? "black" : "gray";
+			})*/
+			.style("stroke-width", function(o) {
+				return (o.source == d.source || o.target == d.target) ? "3px" : "1px";
+			});
+		d3.selectAll("div#adjacency1x1 g#legend g text").classed("activeLegend", function(c, i) { 
+													return c == d.relation;
+												});
+		d3.selectAll("div#adjacency1x1 g.tick text").classed("activeTick", function(c, i) {
+													return data['nodes'][d.source].id == c || data['nodes'][d.target].id == c;
+												});
+	}
+
+	function mouseout() {
+		d3.selectAll("div#adjacency1x1 rect").style("stroke-width", "1px");
+		d3.selectAll("div#adjacency1x1 legend g text").classed("activeLegend", false);
+		d3.selectAll("div#adjacency1x1 g.tick text").classed("activeTick", false);
+	}
+
+	content.append("g").append("text").text("From").style("font-weight", "bold").attr("transform", "translate(5, 70)");
+	content.append("g").append("text").text("To").style("font-weight", "bold").attr("transform", "translate(60, 30)");
+
+	legend = []
+	for (c in colors) {
+		if (c != "") { 
+			legend.push(c);
+		}
+	}
+	adjacencyViewLegend = content.append("g")
+		.attr("transform", "translate(" + ((data['nodes'].length * cellWidth) + 150) + ", 80)")
+		.attr("id", "legend");
+	legendGs = adjacencyViewLegend.selectAll("g")
+	  .data(legend);
+	legendG = legendGs.enter()
+	  .append("g")
+	legendG.append("rect")
+	  .attr("width", cellWidth)
+	  .attr("height", cellWidth)
+	  .attr("x", function (d, i) {return 0; })
+	  .attr("y", function (d, i) {return i * cellWidth})
+	  .style("fill", function(d) { return colors[d]; })
+	  .style("stroke", "black");
+	legendG.append("text")
+	  .text(function(d) { return d; })
+	  .attr("x", function (d, i) { return 40; })
+	  .attr("y", function (d, i) { return (i * (cellWidth)) + 18; });	
+
+	function zoom() {
+		x = d3.event.translate[0]
+		y = d3.event.translate[1]
+		content.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+	}
+
+	d3.select("div#adjacency1x1 button#reset").on("click", reset);
+	d3.select("div#adjacency1x1 button#zoomin").on("click", zoomIn);
+	d3.select("div#adjacency1x1 button#zoomout").on("click", zoomOut);
+
+
+	var originalWidth = data['nodes'].length * cellWidth + 100;
+	var originalHeight = data['nodes'].length * cellWidth + 100;
+	initialScale = Math.min(width/originalWidth, height/originalHeight) * 0.7
+	var t = d3.transform(canvas.attr("transform")),
+			initialX = (size['width'] - (initialScale * originalWidth))/2, //t.translate[0],
+			initialY = 20, //t.translate[1],
+			initialS = initialScale; //t.scale[0];
+
+	function zoomIn() {
+		var t = d3.transform(content.attr("transform")),
+			x = t.translate[0],
+			y = t.translate[1],
+			s = t.scale[0];
+		var newScale = (s + 0.1);
+		zoom.scale(newScale)
+		content.attr("transform", "translate(" + x + " ," + y + ") scale(" + newScale + ")");
+	}
+
+	function zoomOut() {
+		var t = d3.transform(content.attr("transform")),
+			x = t.translate[0],
+			y = t.translate[1],
+			s = t.scale[0];
+		var newScale = (s - 0.1);
+		zoom.scale(newScale)
+		content.attr("transform", "translate(" + x + " ," + y + ") scale(" + newScale + ")");
+	}
+
+	function reset() {
+		initialTranslate = [initialX, initialY];
+		zoom.translate(initialTranslate);
+		zoom.scale(initialS)
+		content.attr("transform", "translate(" + initialX + " ," + initialY + ") scale(" + initialS + ")");
+	}
+
+	reset(); //removes the random jump after first click issue
+}
+  </script>
+  <script id="adjacency">
+   createAdjacencyMatrix();
+function createAdjacencyMatrix() {
+	var size = {
+	  width: document.body.clientWidth || window.innerWidth,
+	  height: document.body.clientHeight || window.innerHeight
+	}
+
+	var margin = {top: 0, right: 0, bottom: 0, left: 0},
+		width = size['width'] - margin.left - margin.right,
+		height = size['height'] - 1 - margin.top - margin.bottom;
+
+	var x = d3.scale.linear()
+		.domain([-width / 2, width / 2])
+		.range([0, width]);
+
+	var y = d3.scale.linear()
+		.domain([-height / 2, height / 2])
+		.range([height, 0]);
+
+	var zoom = d3.behavior.zoom()
+		.x(x)
+		.y(y)
+		.scaleExtent([0.1, 32])
+		.on("zoom", zoom);
+
+	var canvas = d3.select("#adjacency").append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		.call(zoom);
+
+	var content = canvas.append("g");
+		
+	var cellWidth = 25;
+
+	var data = JSON.parse(document.getElementById('dataAdjacency').innerHTML);
+
+	//sort nodes
+	for (i in data['links']) {
+		l = data['links'][i];
+		l.source = data['nodes'][l.source].id
+		l.target = data['nodes'][l.target].id
+	}
+	data['nodes'] = data['nodes'].sort(function(a, b) { 
+										return d3.ascending(a.id, b.id); 
+									});
+	//sort links for legend
+	data['links'] = data['links'].sort(function(a, b) { 
+									if(a.relation.startsWith("taxonomy") && b.relation.startsWith("taxonomy")) {
+										idA = a.relation.split(".")[1];
+										idB = b.relation.split(".")[1];
+										if (idA == idB) {
+											return d3.ascending(a.relation, b.relation);
+										}
+										return d3.ascending(idA, idB);
+									}
+									return d3.ascending(a.relation, b.relation); 
+								});
+	for (i in data['links']) {
+		l = data['links'][i];
+		l.source = data['nodes'].map(function (n) {
+										return n.id;
+									}).indexOf(l.source)
+		l.target = data['nodes'].map(function (n) {
+										return n.id;
+									}).indexOf(l.target)
+	}
+
+	var linksMap = { };
+	for (i in data['links']) {
+		var l = data['links'][i];
+		linksMap[l.source + ";" + l.target] = l;
+	}
+	var cells = [];
+	for (i in data['nodes']) {
+		for (j in data['nodes']) {
+			var id = i + ";" + j;
+			cells.push({ 
+						id: id,
+						source: i, 
+						target: j, 
+						relation: id in linksMap ? linksMap[id].relation : ""
+					});
+		}
+	}
+	/*
+	c20 = d3.scale.category20();
+	colorIndex = 0;
+	var colors = { 
+			"" : "white",
+			"equals" : c20(colorIndex++),
+			"disjoint" : c20(colorIndex++),
+			"includes" : c20(colorIndex++),
+			"is_included_in" : c20(colorIndex++),
+			"overlaps" : c20(colorIndex++)
+	}
+	*/
+
+	var colors = {
+		"" : "white",
+		"equals" : "#7f7f7f", //dark gray
+		"disjoint" : "#c7c7c7", //light gray
+		"includes" : "#e6550d", //dark orange
+		"is_included_in" : "#fd8d3c", //light orange
+		"overlaps" : "#d62728" //red
+	}
+
+	var taxonomyPairColors = ["#393b79", "#5254a3", "#637939", "#8ca252", "#8c6d31", "#bd9e39", "#843c39", "#ad494a", "#7b4173", "#a55194"];
+	colorIndex = 0;
+	for (i in data['links']) {
+		var l = data['links'][i];
+		if (!(l.relation in colors)) {
+			colors[l.relation] = taxonomyPairColors[colorIndex];
+			colorIndex = colorIndex + 1 % 4;
+		}
+		cells.push({ 
+					id: l.source + ";" + l.target, 
+					source: l.source, 
+					target: l.target, 
+					relation: l.relation 
+				});
+	}
+
+	var x = d3.scale.linear()
+		.domain([-width / 2, width / 2])
+		.range([0, width]);
+
+	var y = d3.scale.linear()
+		.domain([-height / 2, height / 2])
+		.range([height, 0]);
+
+	adjacencyView = content.append("g")
+			  .attr("transform", "translate(90,90)");
+			adjacencyView.selectAll("rect")
+			  .data(cells)
+			  .enter()
+			  .append("rect")
+			  .attr("width", cellWidth)
+			  .attr("height", cellWidth)
+			  .attr("x", function (d) {return d.target * cellWidth})
+			  .attr("y", function (d) {return d.source * cellWidth})
+			  .style("fill", function(d) { return colors[d.relation]; })
+			  .style("stroke", "black")
+			  .on("mouseover", mouseover)
+			  .on("mouseout", mouseout);
+			
+	var matrixScale = d3.scale.ordinal()
+						.domain(data['nodes'].map(function (n) {
+											return n.id
+										}))
+						.rangePoints([0, data['nodes'].length * cellWidth], 1);
+						
+	/*tickValues = []
+	for (i = 0; i < data['nodes'].length - 2; i++) { 
+		tickValues.push(i * cellWidth + 0.5 * cellWidth)
+	}*/
+	/*for (i in data['nodes']) {
+		console.log(i);
+		console.log(i * cellWidth);
+		console.log(i * cellWidth - 0.5 * cellWidth);
+		tickValues.push(i * cellWidth - 0.5 * cellWidth)
+		
+	}
+	console.log(tickValues);*/
+	xAxis = d3.svg.axis()
+				.scale(matrixScale)
+				//.tickValues(tickValues)
+				.orient("top")
+				.tickSize(0); 
+	yAxis = d3.svg.axis()
+				.scale(matrixScale)
+				//.tickValues(tickValues)
+				.orient("left")
+				.tickSize(0);    
+	adjacencyView.append("g")
+				.call(xAxis)
+				.selectAll("text")
+				.style("text-anchor", "end")
+				.attr("transform", "translate(-8,-10) rotate(90)");
+	adjacencyView.append("g")
+				.call(yAxis)
+				.attr("transform", "translate(-10, -10)");
+	  
+	function mouseover(d, i) {
+		d3.selectAll("div#adjacency rect")
+			/*.style("stroke", function(o) {
+				return (o.source == d.source || o.target == d.target) ? "black" : "gray";
+			})*/
+			.style("stroke-width", function(o) {
+				return (o.source == d.source || o.target == d.target) ? "3px" : "1px";
+			});
+		d3.selectAll("div#adjacency g#legend g text").classed("activeLegend", function(c, i) { 
+													return c == d.relation;
+												});
+		d3.selectAll("div#adjacency g.tick text").classed("activeTick", function(c, i) {
+													return data['nodes'][d.source].id == c || data['nodes'][d.target].id == c;
+												});
+	}
+
+	function mouseout() {
+		d3.selectAll("div#adjacency rect").style("stroke-width", "1px");
+		d3.selectAll("div#adjacency legend g text").classed("activeLegend", false);
+		d3.selectAll("div#adjacency g.tick text").classed("activeTick", false);
+	}
+
+	content.append("g").append("text").text("From").style("font-weight", "bold").attr("transform", "translate(5, 70)");
+	content.append("g").append("text").text("To").style("font-weight", "bold").attr("transform", "translate(60, 30)");
+
+	legend = []
+	for (c in colors) {
+		if (c != "") { 
+			legend.push(c);
+		}
+	}
+	adjacencyViewLegend = content.append("g")
+		.attr("transform", "translate(" + ((data['nodes'].length * cellWidth) + 150) + ", 80)")
+		.attr("id", "legend");
+	legendGs = adjacencyViewLegend.selectAll("g")
+	  .data(legend);
+	legendG = legendGs.enter()
+	  .append("g")
+	legendG.append("rect")
+	  .attr("width", cellWidth)
+	  .attr("height", cellWidth)
+	  .attr("x", function (d, i) {return 0; })
+	  .attr("y", function (d, i) {return i * cellWidth})
+	  .style("fill", function(d) { return colors[d]; })
+	  .style("stroke", "black");
+	legendG.append("text")
+	  .text(function(d) { return d; })
+	  .attr("x", function (d, i) { return 40; })
+	  .attr("y", function (d, i) { return (i * (cellWidth)) + 18; });	
+
+	function zoom() {
+		x = d3.event.translate[0]
+		y = d3.event.translate[1]
+		content.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+	}
+
+	d3.select("div#adjacency button#reset").on("click", reset);
+	d3.select("div#adjacency button#zoomin").on("click", zoomIn);
+	d3.select("div#adjacency button#zoomout").on("click", zoomOut);
+
+
+	var originalWidth = data['nodes'].length * cellWidth + 100;
+	var originalHeight = data['nodes'].length * cellWidth + 100;
+	initialScale = Math.min(width/originalWidth, height/originalHeight) * 0.7
+	var t = d3.transform(canvas.attr("transform")),
+			initialX = (size['width'] - (initialScale * originalWidth))/2, //t.translate[0],
+			initialY = 20, //t.translate[1],
+			initialS = initialScale; //t.scale[0];
+
+	function zoomIn() {
+		var t = d3.transform(content.attr("transform")),
+			x = t.translate[0],
+			y = t.translate[1],
+			s = t.scale[0];
+		var newScale = (s + 0.1);
+		zoom.scale(newScale)
+		content.attr("transform", "translate(" + x + " ," + y + ") scale(" + newScale + ")");
+	}
+
+	function zoomOut() {
+		var t = d3.transform(content.attr("transform")),
+			x = t.translate[0],
+			y = t.translate[1],
+			s = t.scale[0];
+		var newScale = (s - 0.1);
+		zoom.scale(newScale)
+		content.attr("transform", "translate(" + x + " ," + y + ") scale(" + newScale + ")");
+	}
+
+	function reset() {
+		initialTranslate = [initialX, initialY];
+		zoom.translate(initialTranslate);
+		zoom.scale(initialS)
+		content.attr("transform", "translate(" + initialX + " ," + initialY + ") scale(" + initialS + ")");
+	}
+
+	reset(); //removes the random jump after first click issue
+}
+  </script>
+ </body>
+</html>
