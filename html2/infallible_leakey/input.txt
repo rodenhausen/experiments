@@ -1,0 +1,10 @@
+taxonomy 1 Taxonomy1
+(A B C)
+
+taxonomy 2 Taxonomy2
+(A B F)
+
+articulation
+[1.A equals 2.A]
+[1.B equals 2.B]
+[1.C equals 2.F]
