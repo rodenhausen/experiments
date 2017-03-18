@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title id="title">
+Tap: demo_abstract
+  </title>
+  <script charset="utf-8" src="https://d3js.org/d3.v3.min.js">
+  </script>
+  <script id="data" type="text/json">
+   {"directed": true, "graph": {}, "nodes": [{"group": "2", "id": "2.I"}, {"group": "2", "id": "2.H"}, {"group": "2", "id": "2.C"}, {"group": "2", "id": "2.B"}, {"group": "2", "id": "2.A"}, {"group": "2", "id": "2.G"}, {"group": "2", "id": "2.F"}, {"group": "2", "id": "2.E"}, {"group": "1", "id": "1.D"}, {"group": "1", "id": "1.E"}, {"group": "1", "id": "1.F"}, {"group": "1", "id": "1.G"}, {"group": "1", "id": "1.A"}, {"group": "1", "id": "1.B"}, {"group": "1", "id": "1.C"}, {"group": "1", "id": "1.H"}, {"group": "1", "id": "1.I"}], "links": [{"type": "inferred", "relation": "disjoint", "target": 0, "key": 0, "source": 8}, {"type": "inferred", "relation": "disjoint", "target": 1, "key": 0, "source": 8}, {"type": "input", "relation": "is_included_in", "target": 2, "key": 0, "source": 8}, {"type": "inferred", "relation": "is_included_in", "target": 3, "key": 0, "source": 8}, {"type": "inferred", "relation": "is_included_in", "target": 4, "key": 0, "source": 8}, {"type": "inferred", "relation": "disjoint", "target": 5, "key": 0, "source": 8}, {"type": "inferred", "relation": "disjoint", "target": 6, "key": 0, "source": 8}, {"type": "deduced", "relation": "disjoint", "target": 7, "key": 0, "source": 8}, {"type": "inferred", "relation": "disjoint", "target": 0, "key": 0, "source": 9}, {"type": "deduced", "relation": "disjoint", "target": 1, "key": 0, "source": 9}, {"type": "deduced", "relation": "disjoint", "target": 2, "key": 0, "source": 9}, {"type": "inferred", "relation": "is_included_in", "target": 3, "key": 0, "source": 9}, {"type": "inferred", "relation": "is_included_in", "target": 4, "key": 0, "source": 9}, {"type": "inferred", "relation": "disjoint", "target": 5, "key": 0, "source": 9}, {"type": "inferred", "relation": "disjoint", "target": 6, "key": 0, "source": 9}, {"type": "input", "relation": "equals", "target": 7, "key": 0, "source": 9}, {"type": "inferred", "relation": "disjoint", "target": 0, "key": 0, "source": 10}, {"type": "deduced", "relation": "includes", "target": 1, "key": 0, "source": 10}, {"type": "inferred", "relation": "disjoint", "target": 2, "key": 0, "source": 10}, {"type": "input", "relation": "overlaps", "target": 3, "key": 0, "source": 10}, {"type": "inferred", "relation": "is_included_in", "target": 4, "key": 0, "source": 10}, {"type": "deduced", "relation": "includes", "target": 5, "key": 0, "source": 10}, {"type": "input", "relation": "overlaps", "target": 6, "key": 0, "source": 10}, {"type": "inferred", "relation": "disjoint", "target": 7, "key": 0, "source": 10}, {"type": "deduced", "relation": "disjoint", "target": 0, "key": 0, "source": 11}, {"type": "deduced", "relation": "disjoint", "target": 1, "key": 0, "source": 11}, {"type": "inferred", "relation": "disjoint", "target": 2, "key": 0, "source": 11}, {"type": "inferred", "relation": "disjoint", "target": 3, "key": 0, "source": 11}, {"type": "inferred", "relation": "is_included_in", "target": 4, "key": 0, "source": 11}, {"type": "input", "relation": "equals", "target": 5, "key": 0, "source": 11}, {"type": "inferred", "relation": "is_included_in", "target": 6, "key": 0, "source": 11}, {"type": "inferred", "relation": "disjoint", "target": 7, "key": 0, "source": 11}, {"type": "deduced", "relation": "includes", "target": 0, "key": 0, "source": 12}, {"type": "deduced", "relation": "includes", "target": 1, "key": 0, "source": 12}, {"type": "deduced", "relation": "includes", "target": 2, "key": 0, "source": 12}, {"type": "deduced", "relation": "includes", "target": 3, "key": 0, "source": 12}, {"type": "input", "relation": "equals", "target": 4, "key": 0, "source": 12}, {"type": "deduced", "relation": "includes", "target": 5, "key": 0, "source": 12}, {"type": "deduced", "relation": "includes", "target": 6, "key": 0, "source": 12}, {"type": "deduced", "relation": "includes", "target": 7, "key": 0, "source": 12}, {"type": "inferred", "relation": "disjoint", "target": 0, "key": 0, "source": 13}, {"type": "inferred", "relation": "disjoint", "target": 1, "key": 0, "source": 13}, {"type": "inferred", "relation": "includes", "target": 2, "key": 0, "source": 13}, {"type": "inferred", "relation": "overlaps", "target": 2, "key": 1, "source": 13}, {"type": "input", "relation": "is_included_in", "target": 3, "key": 0, "source": 13}, {"type": "inferred", "relation": "is_included_in", "target": 4, "key": 0, "source": 13}, {"type": "inferred", "relation": "disjoint", "target": 5, "key": 0, "source": 13}, {"type": "inferred", "relation": "disjoint", "target": 6, "key": 0, "source": 13}, {"type": "deduced", "relation": "includes", "target": 7, "key": 0, "source": 13}, {"type": "inferred", "relation": "disjoint", "target": 0, "key": 0, "source": 14}, {"type": "inferred", "relation": "disjoint", "target": 1, "key": 0, "source": 14}, {"type": "input", "relation": "is_included_in", "target": 2, "key": 0, "source": 14}, {"type": "inferred", "relation": "is_included_in", "target": 3, "key": 0, "source": 14}, {"type": "inferred", "relation": "is_included_in", "target": 4, "key": 0, "source": 14}, {"type": "inferred", "relation": "disjoint", "target": 5, "key": 0, "source": 14}, {"type": "inferred", "relation": "disjoint", "target": 6, "key": 0, "source": 14}, {"type": "deduced", "relation": "disjoint", "target": 7, "key": 0, "source": 14}, {"type": "inferred", "relation": "disjoint", "target": 0, "key": 0, "source": 15}, {"type": "input", "relation": "equals", "target": 1, "key": 0, "source": 15}, {"type": "deduced", "relation": "disjoint", "target": 2, "key": 0, "source": 15}, {"type": "inferred", "relation": "is_included_in", "target": 3, "key": 0, "source": 15}, {"type": "inferred", "relation": "is_included_in", "target": 4, "key": 0, "source": 15}, {"type": "deduced", "relation": "disjoint", "target": 5, "key": 0, "source": 15}, {"type": "inferred", "relation": "disjoint", "target": 6, "key": 0, "source": 15}, {"type": "deduced", "relation": "disjoint", "target": 7, "key": 0, "source": 15}, {"type": "inferred", "relation": "equals", "target": 0, "key": 0, "source": 16}, {"type": "inferred", "relation": "includes", "target": 0, "key": 1, "source": 16}, {"type": "inferred", "relation": "disjoint", "target": 1, "key": 0, "source": 16}, {"type": "inferred", "relation": "disjoint", "target": 2, "key": 0, "source": 16}, {"type": "inferred", "relation": "overlaps", "target": 2, "key": 1, "source": 16}, {"type": "inferred", "relation": "disjoint", "target": 3, "key": 0, "source": 16}, {"type": "inferred", "relation": "overlaps", "target": 3, "key": 1, "source": 16}, {"type": "inferred", "relation": "is_included_in", "target": 4, "key": 0, "source": 16}, {"type": "inferred", "relation": "disjoint", "target": 5, "key": 0, "source": 16}, {"type": "inferred", "relation": "is_included_in", "target": 6, "key": 0, "source": 16}, {"type": "inferred", "relation": "overlaps", "target": 6, "key": 1, "source": 16}, {"type": "inferred", "relation": "disjoint", "target": 7, "key": 0, "source": 16}], "multigraph": true}
+  </script>
+  <style type="text/css">
+  </style>
+ </head>
+ <body>
+  <script id="mirMatrix">
+   content = createContent();
+createMirMatrix(content);
+
+  function createContent(size) {
+  	var size = {
+  	  width: document.body.clientWidth || window.innerWidth,
+  	  height: document.body.clientHeight || window.innerHeight
+  	}	
+  	
+  	var margin = {top: 0, right: 0, bottom: 0, left: 0},
+  		width = size['width'] - margin.left - margin.right,
+  		height = size['height'] - 1 - margin.top - margin.bottom;
+
+  	var x = d3.scale.linear()
+  		.domain([-width / 2, width / 2])
+  		.range([0, width]);
+
+  	var y = d3.scale.linear()
+  		.domain([-height / 2, height / 2])
+  		.range([height, 0]);
+
+  	var zoom = d3.behavior.zoom()
+  		.x(x)
+  		.y(y)
+  		.scaleExtent([0.1, 32])
+  		.on("zoom", zoom);
+
+  	var canvas = d3.select("body").append("svg")
+  		.attr("width", width + margin.left + margin.right)
+  		.attr("height", height + margin.top + margin.bottom)
+  		.append("g")
+  		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+  		.call(zoom);
+  		
+  	function zoom() {
+  		x = d3.event.translate[0]
+  		y = d3.event.translate[1]
+  		content.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+  	}
+  	
+  	var content = canvas.append("g");
+  	return content;
+  } 
+   
+  function createMirMatrix(content) {
+  	var cellWidth = 30; // don't pick uneven number for pie cell alignment 
+  	var data = JSON.parse(document.getElementById('data').innerHTML);
+  	
+  	for (i in data['links']) {
+  		l = data['links'][i];
+  		l.source = data['nodes'][l.source].id
+  		l.target = data['nodes'][l.target].id
+  	}
+  	
+  	data['nodes'] = data['nodes'].sort(function(a, b) { 
+  										return d3.ascending(a.id, b.id); 
+  								});
+  	groupNodes = { }
+  	for (i in data['nodes']) {
+  		n = data['nodes'][i];
+  		id = n.group;
+  		if (id in groupNodes) {
+  			groupNodes[id].push(n);
+  		} else {
+  			groupNodes[id] = [];
+  			groupNodes[id].push(n);
+  		}
+  	}
+  	if(Object.keys(groupNodes).length != 2) {
+  		return;
+  	}
+  	dataNodesA = groupNodes[Object.keys(groupNodes)[0]]
+  	dataNodesB = groupNodes[Object.keys(groupNodes)[1]]
+
+  	//sort links for legend
+  	data['links'] = data['links'].sort(function(a, b) { 
+  									if(a.relation.startsWith("taxonomy") && b.relation.startsWith("taxonomy")) {
+  										idA = a.relation.split(".")[1];
+  										idB = b.relation.split(".")[1];
+  										if (idA == idB) {
+  											return d3.ascending(a.relation, b.relation);
+  										}
+  										return d3.ascending(idA, idB);
+  									}
+  									return d3.ascending(a.relation, b.relation); 
+  								});
+  	
+  	for (i in data['links']) {
+  		l = data['links'][i];
+  		l.source = dataNodesA.map(function (n) {
+  										return n.id;
+  									}).indexOf(l.source)
+  		l.target = dataNodesB.map(function (n) {
+  										return n.id;
+  									}).indexOf(l.target)
+  	}
+  	
+  	var linksMap = { };
+  	for (i in data['links']) {
+  		var l = data['links'][i];
+  		id = l.source + ";" + l.target
+  		if (!(id in linksMap)) {
+  			linksMap[id] = [];
+  		} 
+  		linksMap[id].push(l.relation);
+  	}
+  	
+  	var cells = [];
+  	var pies = [];
+  	for (i in dataNodesA) {
+  		for (j in dataNodesB) {
+  			var id = i + ";" + j;
+  			relations = id in linksMap ? linksMap[id] : []
+  			cells.push({ 
+  						id: id,
+  						source: i, 
+  						target: j, 
+  					});
+  			pies.push([ 
+  				{legend: "equals", value:1, color: relations.includes("equals") ? "darkgray" : "white" },
+  				{legend: "overlaps", value:1, color: relations.includes("overlaps") ? "red" : "white"},
+  				{legend: "includes", value:1, color: relations.includes("includes") ? "darkblue" : "white"},
+  				{legend: "is_included_in", value:1, color: relations.includes("is_included_in") ? "lightblue" : "white"},
+  				{legend: "disjoint", value:1, color: relations.includes("disjoint") ? "lightgray" : "white"}
+  			]);
+  		}
+  	}
+  	
+  	adjacencyView = content.append("g")
+  			  .attr("transform", "translate(90,90)");
+  	adjacencyView.selectAll("rect")
+  			  .data(cells)
+  			  .enter()
+  			  .append("rect")
+  			  .attr("width", cellWidth)
+  			  .attr("height", cellWidth)
+  			  .attr("x", function (d) {return d.target * cellWidth})
+  			  .attr("y", function (d) {return d.source * cellWidth})
+  			  .style("fill", function(d) { return "white"; })//return colors[d.relation]; })
+  			  .style("stroke", "black")
+  			  .on("mouseover", mouseover)
+  			  .on("mouseout", mouseout);
+  		
+  	var pieCellMargin = 2
+  	var outerRadius = Math.floor(cellWidth/2) - pieCellMargin;
+  	var innerRadius = 0;
+  	var arc = d3.svg.arc()
+  			.outerRadius(outerRadius)
+  			.innerRadius(innerRadius);
+  	var	z = d3.scale.category20c();
+  	
+  	gPie = adjacencyView.selectAll("g.pie")
+  		.data(pies)
+  		.enter().append("g")
+  		.attr("class", "pie")
+  		.attr("transform", function(d, i) {
+  			xMax = dataNodesB.length - 1;
+  			yMax = dataNodesA.length - 1;
+			
+  			y = 0;
+  			if (xMax != 0) {
+  				y = Math.floor(i / yMax);
+  			}
+  			x = i % (xMax + 1);
+  			return "translate(" + (outerRadius + pieCellMargin + x * cellWidth) + "," + (outerRadius + pieCellMargin + y * cellWidth) + ")";
+  		});
+  			  
+  	gPie.selectAll("path")
+  		.data(d3.layout.pie().sort(null).value(function(d) { return d.value; }))
+  		.enter()
+  		.append("path")
+  		.attr("d", arc)
+		.style("stroke", "black")
+		.style("stroke-width", "0.2")
+  		.style("fill", function(d, i) { return d.data.color; });
+  			
+  	var matrixScaleA = d3.scale.ordinal()
+  						.domain(dataNodesA.map(function (n) {
+  											return n.id
+  										}))
+  						.rangePoints([0, dataNodesA.length * cellWidth], 1);
+  	var matrixScaleB = d3.scale.ordinal()
+  						.domain(dataNodesB.map(function (n) {
+  											return n.id
+  										}))
+  						.rangePoints([0, dataNodesB.length * cellWidth], 1);						
+  	
+  	xAxis = d3.svg.axis()
+  				.scale(matrixScaleB)
+  				//.tickValues(tickValues)
+  				.orient("top")
+  				.tickSize(0); 
+  	yAxis = d3.svg.axis()
+  				.scale(matrixScaleA)
+  				//.tickValues(tickValues)
+  				.orient("left")
+  				.tickSize(0);    
+  	adjacencyView.append("g")
+  				.call(xAxis)
+  				.selectAll("text")
+  				.style("text-anchor", "end")
+  				.attr("transform", "translate(-8,-10) rotate(90)");
+  	adjacencyView.append("g")
+  				.call(yAxis)
+  				.attr("transform", "translate(-10, 0)");
+  	  
+  	function mouseover(d, i) {
+  		d3.selectAll("div#adjacency1x1 rect")
+  			/*.style("stroke", function(o) {
+  				return (o.source == d.source || o.target == d.target) ? "black" : "gray";
+  			})*/
+  			.style("stroke-width", function(o) {
+  				return (o.source == d.source || o.target == d.target) ? "3px" : "1px";
+  			});
+  		d3.selectAll("div#adjacency1x1 g#legend g text").classed("activeLegend", function(c, i) { 
+  													return c == d.relation;
+  												});
+  		d3.selectAll("div#adjacency1x1 g.tick text").classed("activeTick", function(c, i) {
+  													return data['nodes'][d.source].id == c || data['nodes'][d.target].id == c;
+  												});
+  	}
+
+  	function mouseout() {
+  		d3.selectAll("div#adjacency1x1 rect").style("stroke-width", "1px");
+  		d3.selectAll("div#adjacency1x1 legend g text").classed("activeLegend", false);
+  		d3.selectAll("div#adjacency1x1 g.tick text").classed("activeTick", false);
+  	}
+
+  	content.append("g").append("text").text("From").style("font-weight", "bold").attr("transform", "translate(5, 70)");
+  	content.append("g").append("text").text("To").style("font-weight", "bold").attr("transform", "translate(60, 30)");	
+  }
+  </script>
+ </body>
+</html>
