@@ -1,0 +1,13 @@
+1 worlds have been produced.
+
+
+1. World
+FloraChina.ChineseOakSpecies2 disjoint FloraMexico.MexicanOakSpecies1
+FloraChina.ChineseOakSpecies1 disjoint FloraMexico.MexicanOakSpecies2
+FloraChina.OakGenus overlaps FloraMexico.MexicanOakSpecies1
+FloraChina.OakGenus includes FloraMexico.MexicanOakSpecies2
+FloraChina.ChineseOakSpecies1 is_included_in FloraMexico.OakGenus
+FloraChina.ChineseOakSpecies2 is_included_in FloraMexico.OakGenus
+FloraChina.ChineseOakSpecies1 is_included_in FloraMexico.MexicanOakSpecies1
+FloraChina.OakGenus is_included_in FloraMexico.OakGenus
+FloraChina.ChineseOakSpecies2 equals FloraMexico.MexicanOakSpecies2
