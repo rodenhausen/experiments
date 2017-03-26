@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title id="title">
+Tap: demo_butterflies
+  </title>
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet"/>
+  <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" rel="stylesheet"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+  </script>
+  <script crossorigin="anonymous" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+  </script>
+  <script charset="utf-8" src="https://d3js.org/d3.v3.min.js">
+  </script>
+  <script id="dataAdjacency" type="text/json">
+   {"directed": true, "graph": {}, "nodes": [{"group": "1997", "id": "1997.Amauris_hyalites"}, {"group": "1995", "id": "1995.Amauris_damocles"}, {"group": "1995", "id": "1995.Amauris_damocles_subsp_makuyensis"}, {"group": "1995", "id": "1995.Amauris_damocles_subsp_damocles"}, {"group": "1997", "id": "1997.Amauris_hyalites_subsp_hyalites"}, {"group": "1995", "id": "1995.Amauris_damocles_subsp_hyalites"}, {"group": "1997", "id": "1997.Amauris_hyalites_subsp_makuyensis"}, {"group": "1997", "id": "1997.Amauris_damocles"}], "links": [{"source": 0, "relation": "taxonomy_outgoing.1997", "target": 6, "key": 0}, {"source": 0, "relation": "taxonomy_outgoing.1997", "target": 4, "key": 0}, {"source": 1, "relation": "taxonomy_outgoing.1995", "target": 3, "key": 0}, {"source": 1, "relation": "taxonomy_outgoing.1995", "target": 5, "key": 0}, {"source": 1, "relation": "taxonomy_outgoing.1995", "target": 2, "key": 0}, {"source": 2, "relation": "taxonomy_incoming.1995", "target": 1, "key": 0}, {"source": 2, "relation": "equals", "target": 6, "key": 0}, {"source": 3, "relation": "taxonomy_incoming.1995", "target": 1, "key": 0}, {"source": 3, "relation": "equals", "target": 7, "key": 0}, {"source": 4, "relation": "taxonomy_incoming.1997", "target": 0, "key": 0}, {"source": 4, "relation": "is_included_in", "target": 5, "key": 0}, {"source": 5, "relation": "taxonomy_incoming.1995", "target": 1, "key": 0}, {"source": 5, "relation": "includes", "target": 4, "key": 0}, {"source": 6, "relation": "taxonomy_incoming.1997", "target": 0, "key": 0}, {"source": 6, "relation": "equals", "target": 2, "key": 0}, {"source": 7, "relation": "equals", "target": 3, "key": 0}], "multigraph": true}
+  </script>
+  <script id="dataAdjacency1x1" type="text/json">
+   {"directed": true, "graph": {}, "nodes": [{"group": "1997", "id": "1997.Amauris_hyalites"}, {"group": "1995", "id": "1995.Amauris_damocles"}, {"group": "1995", "id": "1995.Amauris_damocles_subsp_makuyensis"}, {"group": "1995", "id": "1995.Amauris_damocles_subsp_damocles"}, {"group": "1997", "id": "1997.Amauris_hyalites_subsp_hyalites"}, {"group": "1995", "id": "1995.Amauris_damocles_subsp_hyalites"}, {"group": "1997", "id": "1997.Amauris_hyalites_subsp_makuyensis"}, {"group": "1997", "id": "1997.Amauris_damocles"}], "links": [{"source": 4, "relation": "is_included_in", "target": 5, "key": 0}, {"source": 6, "relation": "equals", "target": 2, "key": 0}, {"source": 7, "relation": "equals", "target": 3, "key": 0}], "multigraph": true}
+  </script>
+  <style type="text/css">
+   .container {
+	width: initial;
+	padding-right: 0px;
+	padding-left: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+div#visualization button#zoomin {
+  position: absolute;
+  right: 30px;
+  top: 50px;
+  z-index: 99;
+}
+div#visualization button#zoomout {
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  z-index: 99;
+}	
+div#visualization button#reset {
+  position: absolute;
+  right: 30px;
+  top: 110px;
+  z-index: 99;
+}
+
+
+div#adjacency1x1 text.activeLegend {
+  fill: khaki;
+  font-weight: bold;
+}
+div#adjacency1x1 text.activeTick {
+   fill: khaki;
+   font-weight: bold;
+}
+div#adjacency1x1 button#zoomin {
+  position: absolute;
+  right: 30px;
+  top: 50px;
+  z-index: 99;
+}
+div#adjacency1x1 button#zoomout {
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  z-index: 99;
+}	
+div#adjacency1x1 button#reset {
+  position: absolute;
+  right: 30px;
+  top: 110px;
+  z-index: 99;
+}
+
+
+div#adjacency text.activeLegend {
+  fill: khaki;
+  font-weight: bold;
+}
+div#adjacency text.activeTick {
+   fill: khaki;
+   font-weight: bold;
+}
+div#adjacency button#zoomin {
+  position: absolute;
+  right: 30px;
+  top: 50px;
+  z-index: 99;
+}
+div#adjacency button#zoomout {
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  z-index: 99;
+}	
+div#adjacency button#reset {
+  position: absolute;
+  right: 30px;
+  top: 110px;
+  z-index: 99;
+}
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <ul class="nav nav-tabs">
+    <li class="active">
+     <a data-toggle="tab" href="#cleantax">
+      Cleantax
+     </a>
+    </li>
+    <li>
+     <a data-toggle="tab" href="#visualization">
+      Visualization
+     </a>
+    </li>
+    <li>
+     <a data-toggle="tab" href="#adjacency1x1">
+      Adjacency 1x1
+     </a>
+    </li>
+    <li>
+     <a data-toggle="tab" href="#adjacency">
+      Adjacency
+     </a>
+    </li>
+   </ul>
+   <div class="tab-content">
+    <div class="tab-pane fade in active" id="cleantax">
+     <textarea cols="150" disabled="" id="cleantax-textarea" rows="30">taxonomy 1997 D’Abrera
+(Amauris_hyalites Amauris_hyalites_subsp_hyalites Amauris_hyalites_subsp_makuyensis)
+(Amauris_damocles)
+
+taxonomy 1995 AckeryEtAl
+(Amauris_damocles Amauris_damocles_subsp_damocles Amauris_damocles_subsp_hyalites Amauris_damocles_subsp_makuyensis)
+
+articulation
+[1997.Amauris_damocles equals 1995.Amauris_damocles_subsp_damocles]
+[1997.Amauris_hyalites_subsp_makuyensis equals 1995.Amauris_damocles_subsp_makuyensis]
+[1997.Amauris_hyalites_subsp_hyalites is_included_in 1995.Amauris_damocles_subsp_hyalites]
+</textarea>
+    </div>
+    <div class="tab-pane fade" id="visualization">
+     <button id="zoomin">
+      Zoom in
+     </button>
+     <button id="zoomout">
+      Zoom out
+     </button>
+     <button id="reset">
+      Reset
+     </button>
+<svg height="186pt" viewbox="0.00 0.00 1316.00 186.00" width="1316pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <g class="graph" id="graph0" transform="scale(1 1) rotate(0) translate(4 182)">
+  <title>
+   %3
+  </title>
+  <polygon fill="white" points="-4,4 -4,-182 1312,-182 1312,4 -4,4" stroke="none">
+  </polygon>
+  <!-- 1995.Amauris_damocles -->
+  <g class="node" id="node1">
+   <title>
+    1995.Amauris_damocles
+   </title>
+   <polygon fill="#ffffcc" points="1307.47,-61.5442 1307.47,-76.4558 1238.66,-87 1141.34,-87 1072.53,-76.4558 1072.53,-61.5442 1141.34,-51 1238.66,-51 1307.47,-61.5442" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="middle" x="1190" y="-65.3">
+    1995.Amauris_damocles
+   </text>
+  </g>
+  <!-- 1995.Amauris_damocles_subsp_makuyensis -->
+  <g class="node" id="node2">
+   <title>
+    1995.Amauris_damocles_subsp_makuyensis
+   </title>
+   <polygon fill="#ffffcc" points="1034.03,-61.5442 1034.03,-76.4558 914.51,-87 745.49,-87 625.974,-76.4558 625.974,-61.5442 745.49,-51 914.51,-51 1034.03,-61.5442" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="middle" x="830" y="-65.3">
+    1995.Amauris_damocles_subsp_makuyensis
+   </text>
+  </g>
+  <!-- 1995.Amauris_damocles_subsp_makuyensis&#45;&gt;1995.Amauris_damocles -->
+  <g class="edge" id="edge1">
+   <title>
+    1995.Amauris_damocles_subsp_makuyensis-&gt;1995.Amauris_damocles
+   </title>
+   <path d="M1034.06,-69C1043.46,-69 1052.77,-69 1061.89,-69" fill="none" stroke="#000000">
+   </path>
+   <polygon fill="#000000" points="1062.09,-72.5001 1072.09,-69 1062.09,-65.5001 1062.09,-72.5001" stroke="#000000">
+   </polygon>
+  </g>
+  <!-- 1995.Amauris_damocles_subsp_damocles -->
+  <g class="node" id="node3">
+   <title>
+    1995.Amauris_damocles_subsp_damocles
+   </title>
+   <polygon fill="#ffffcc" points="1024.33,-15.5442 1024.33,-30.4558 910.493,-41 749.507,-41 635.672,-30.4558 635.672,-15.5442 749.507,-5 910.493,-5 1024.33,-15.5442" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="middle" x="830" y="-19.3">
+    1995.Amauris_damocles_subsp_damocles
+   </text>
+  </g>
+  <!-- 1995.Amauris_damocles_subsp_damocles&#45;&gt;1995.Amauris_damocles -->
+  <g class="edge" id="edge3">
+   <title>
+    1995.Amauris_damocles_subsp_damocles-&gt;1995.Amauris_damocles
+   </title>
+   <path d="M961.873,-36.2944C985.887,-38.9863 1010.72,-41.9372 1034,-45 1055.09,-47.7745 1077.75,-51.0908 1099.05,-54.3598" fill="none" stroke="#000000">
+   </path>
+   <polygon fill="#000000" points="1098.63,-57.8376 1109.05,-55.907 1099.7,-50.9198 1098.63,-57.8376" stroke="#000000">
+   </polygon>
+  </g>
+  <!-- 1995.Amauris_damocles_subsp_hyalites -->
+  <g class="node" id="node4">
+   <title>
+    1995.Amauris_damocles_subsp_hyalites
+   </title>
+   <polygon fill="#ffffcc" points="1015.04,-107.544 1015.04,-122.456 906.645,-133 753.355,-133 644.963,-122.456 644.963,-107.544 753.355,-97 906.645,-97 1015.04,-107.544" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="middle" x="830" y="-111.3">
+    1995.Amauris_damocles_subsp_hyalites
+   </text>
+  </g>
+  <!-- 1995.Amauris_damocles_subsp_hyalites&#45;&gt;1995.Amauris_damocles -->
+  <g class="edge" id="edge2">
+   <title>
+    1995.Amauris_damocles_subsp_hyalites-&gt;1995.Amauris_damocles
+   </title>
+   <path d="M958.887,-102.039C983.823,-99.2585 1009.75,-96.1899 1034,-93 1055.09,-90.2255 1077.75,-86.9092 1099.05,-83.6402" fill="none" stroke="#000000">
+   </path>
+   <polygon fill="#000000" points="1099.7,-87.0802 1109.05,-82.093 1098.63,-80.1624 1099.7,-87.0802" stroke="#000000">
+   </polygon>
+  </g>
+  <!-- 1997.Amauris_hyalites_subsp_hyalites -->
+  <g class="node" id="node5">
+   <title>
+    1997.Amauris_hyalites_subsp_hyalites
+   </title>
+   <polygon fill="#ccffcc" points="558.5,-135 307.5,-135 307.5,-99 558.5,-99 558.5,-135" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="middle" x="433" y="-113.3">
+    1997.Amauris_hyalites_subsp_hyalites
+   </text>
+  </g>
+  <!-- 1997.Amauris_hyalites_subsp_hyalites&#45;&gt;1995.Amauris_damocles_subsp_hyalites -->
+  <g class="edge" id="edge6">
+   <title>
+    1997.Amauris_hyalites_subsp_hyalites-&gt;1995.Amauris_damocles_subsp_hyalites
+   </title>
+   <path d="M558.709,-116.369C586.065,-116.23 615.587,-116.081 644.723,-115.933" fill="none" stroke="#aa00ff" stroke-dasharray="5,2">
+   </path>
+   <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="599" y="-119.8">
+    &lt;
+   </text>
+  </g>
+  <!-- 1997.Amauris_hyalites_subsp_makuyensis -->
+  <g class="node" id="node6">
+   <title>
+    1997.Amauris_hyalites_subsp_makuyensis
+   </title>
+   <polygon fill="#ccffcc" points="571.5,-89 294.5,-89 294.5,-53 571.5,-53 571.5,-89" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="middle" x="433" y="-67.3">
+    1997.Amauris_hyalites_subsp_makuyensis
+   </text>
+  </g>
+  <!-- 1997.Amauris_hyalites_subsp_makuyensis&#45;&gt;1995.Amauris_damocles_subsp_makuyensis -->
+  <g class="edge" id="edge8">
+   <title>
+    1997.Amauris_hyalites_subsp_makuyensis-&gt;1995.Amauris_damocles_subsp_makuyensis
+   </title>
+   <path d="M571.597,-70.3033C589.187,-70.2142 607.476,-70.1216 625.831,-70.0287" fill="none" stroke="#aa00ff" stroke-dasharray="5,2">
+   </path>
+   <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="599" y="-74.8">
+    ==
+   </text>
+  </g>
+  <!-- 1997.Amauris_hyalites -->
+  <g class="node" id="node7">
+   <title>
+    1997.Amauris_hyalites
+   </title>
+   <polygon fill="#ccffcc" points="256,-109 102,-109 102,-73 256,-73 256,-109" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="middle" x="179" y="-87.3">
+    1997.Amauris_hyalites
+   </text>
+  </g>
+  <!-- 1997.Amauris_hyalites&#45;&gt;1997.Amauris_hyalites_subsp_hyalites -->
+  <g class="edge" id="edge5">
+   <title>
+    1997.Amauris_hyalites-&gt;1997.Amauris_hyalites_subsp_hyalites
+   </title>
+   <path d="M266.627,-99.9377C279.697,-101.286 293.396,-102.7 307.077,-104.111" fill="none" stroke="#000000">
+   </path>
+   <polygon fill="#000000" points="266.599,-96.4163 256.292,-98.8714 265.88,-103.379 266.599,-96.4163" stroke="#000000">
+   </polygon>
+  </g>
+  <!-- 1997.Amauris_hyalites&#45;&gt;1997.Amauris_hyalites_subsp_makuyensis -->
+  <g class="edge" id="edge4">
+   <title>
+    1997.Amauris_hyalites-&gt;1997.Amauris_hyalites_subsp_makuyensis
+   </title>
+   <path d="M266.428,-84.1407C275.531,-83.4182 284.94,-82.6714 294.438,-81.9176" fill="none" stroke="#000000">
+   </path>
+   <polygon fill="#000000" points="265.984,-80.6648 256.292,-84.9451 266.538,-87.6428 265.984,-80.6648" stroke="#000000">
+   </polygon>
+  </g>
+  <!-- 1997.Amauris_damocles -->
+  <g class="node" id="node8">
+   <title>
+    1997.Amauris_damocles
+   </title>
+   <polygon fill="#ccffcc" points="516.5,-36 349.5,-36 349.5,-0 516.5,-0 516.5,-36" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="middle" x="433" y="-14.3">
+    1997.Amauris_damocles
+   </text>
+  </g>
+  <!-- 1997.Amauris_damocles&#45;&gt;1995.Amauris_damocles_subsp_damocles -->
+  <g class="edge" id="edge7">
+   <title>
+    1997.Amauris_damocles-&gt;1995.Amauris_damocles_subsp_damocles
+   </title>
+   <path d="M516.805,-19.0482C551.643,-19.4892 593.768,-20.0224 635.645,-20.5525" fill="none" stroke="#aa00ff" stroke-dasharray="5,2">
+   </path>
+   <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="599" y="-24.8">
+    ==
+   </text>
+  </g>
+  <!-- Legend -->
+  <g class="node" id="node9">
+   <title>
+    Legend
+   </title>
+   <polygon fill="white" points="84,-179 7.10543e-15,-179 7.10543e-15,-3 84,-3 84,-179" stroke="black">
+   </polygon>
+   <polygon fill="none" points="0,-153 0,-179 84,-179 84,-153 0,-153" stroke="black">
+   </polygon>
+   <text font-family="Arial Black" font-size="14.00" text-anchor="start" x="17.5" y="-162.3">
+    Nodes
+   </text>
+   <polygon fill="#ffffcc" points="0,-128 0,-153 66,-153 66,-128 0,-128" stroke="none">
+   </polygon>
+   <polygon fill="none" points="0,-128 0,-153 66,-153 66,-128 0,-128" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="start" x="17.5" y="-136.8">
+    1995
+   </text>
+   <polygon fill="none" points="66,-128 66,-153 84,-153 84,-128 66,-128" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="start" x="71" y="-136.8">
+    4
+   </text>
+   <polygon fill="#ccffcc" points="0,-103 0,-128 66,-128 66,-103 0,-103" stroke="none">
+   </polygon>
+   <polygon fill="none" points="0,-103 0,-128 66,-128 66,-103 0,-103" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="start" x="17.5" y="-111.8">
+    1997
+   </text>
+   <polygon fill="none" points="66,-103 66,-128 84,-128 84,-103 66,-103" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="start" x="71" y="-111.8">
+    4
+   </text>
+   <polygon fill="none" points="0,-78 0,-103 84,-103 84,-78 0,-78" stroke="black">
+   </polygon>
+   <text font-family="Arial Black" font-size="14.00" text-anchor="start" x="16" y="-86.8">
+    Edges
+   </text>
+   <polygon fill="none" points="0,-53 0,-78 66,-78 66,-53 0,-53" stroke="black">
+   </polygon>
+   <text fill="#000000" font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="start" x="5.5" y="-61.8">
+    isa_1995
+   </text>
+   <polygon fill="none" points="66,-53 66,-78 84,-78 84,-53 66,-53" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="start" x="71" y="-61.8">
+    3
+   </text>
+   <polygon fill="none" points="0,-28 0,-53 66,-53 66,-28 0,-28" stroke="black">
+   </polygon>
+   <text fill="#000000" font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="start" x="5.5" y="-36.8">
+    isa_1997
+   </text>
+   <polygon fill="none" points="66,-28 66,-53 84,-53 84,-28 66,-28" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="start" x="71" y="-36.8">
+    2
+   </text>
+   <polygon fill="none" points="0,-3 0,-28 66,-28 66,-3 0,-3" stroke="black">
+   </polygon>
+   <text fill="#aa00ff" font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="start" x="22" y="-11.8">
+    Art.
+   </text>
+   <polygon fill="none" points="66,-3 66,-28 84,-28 84,-3 66,-3" stroke="black">
+   </polygon>
+   <text font-family="Helvetica,sans-Serif" font-size="14.00" text-anchor="start" x="71" y="-11.8">
+    3
+   </text>
+  </g>
+ </g>
+</svg>
+    </div>
+    <div class="tab-pane fade" id="adjacency1x1">
+     <button id="zoomin">
+      Zoom in
+     </button>
+     <button id="zoomout">
+      Zoom out
+     </button>
+     <button id="reset">
+      Reset
+     </button>
+    </div>
+    <div class="tab-pane fade" id="adjacency">
+     <button id="zoomin">
+      Zoom in
+     </button>
+     <button id="zoomout">
+      Zoom out
+     </button>
+     <button id="reset">
+      Reset
+     </button>
+    </div>
+   </div>
+  </div>
+  <script id="visualization">
+   createVisualization();
+function createVisualization() {
+	var size = {
+	  width: document.body.clientWidth || window.innerWidth,
+	  height: document.body.clientHeight || window.innerHeight
+	}
+
+	var oldSvg = d3.select("div#visualization svg")
+	var graphG = d3.select("div#visualization svg g.graph");
+	oldSvg.remove();
+
+	var margin = {top: 0, right: 0, bottom: 0, left: 0},
+		width = size['width'] - margin.left - margin.right,
+		height = size['height'] - 1 - margin.top - margin.bottom;
+
+	var x = d3.scale.linear()
+		.domain([-width / 2, width / 2])
+		.range([0, width]);
+
+	var y = d3.scale.linear()
+		.domain([-height / 2, height / 2])
+		.range([height, 0]);
+
+	var zoom = d3.behavior.zoom()
+		.x(x)
+		.y(y)
+		.scaleExtent([0.1, 32])
+		.on("zoom", zoom);
+
+	var svg = d3.select("#visualization").append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		.call(zoom)
+		.append(function() {
+			return graphG.node();
+		});
+
+	function zoom() {
+		x = d3.event.translate[0]
+		y = d3.event.translate[1]
+		graphG.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+	}
+
+
+	d3.select("div#visualization button#reset").on("click", reset);
+	d3.select("div#visualization button#zoomin").on("click", zoomIn);
+	d3.select("div#visualization button#zoomout").on("click", zoomOut);
+
+	var originalWidth = Number(oldSvg.attr("width").slice(0, -2));
+	var originalHeight = Number(oldSvg.attr("width").slice(0, -2));
+	initialScale = Math.min(width/originalWidth, height/originalHeight) * 0.7
+	var t = d3.transform(graphG.attr("transform")),
+			initialX = (size['width'] - (initialScale * originalWidth))/2, //t.translate[0],
+			initialY = size['height'] * 0.8, //t.translate[1],
+			initialS = initialScale; //t.scale[0];
+			
+	function zoomIn() {
+		var t = d3.transform(graphG.attr("transform")),
+			x = t.translate[0],
+			y = t.translate[1],
+			s = t.scale[0];
+		var newScale = (s + 0.1);
+		zoom.scale(newScale)
+		graphG.attr("transform", "translate(" + x + " ," + y + ") scale(" + newScale + ")");
+	}
+
+	function zoomOut() {
+		var t = d3.transform(graphG.attr("transform")),
+			x = t.translate[0],
+			y = t.translate[1],
+			s = t.scale[0];
+		var newScale = (s - 0.1);
+		zoom.scale(newScale)
+		graphG.attr("transform", "translate(" + x + " ," + y + ") scale(" + newScale + ")");
+	}
+
+	function reset() {
+		initialTranslate = [initialX, initialY];
+		zoom.translate(initialTranslate);
+		zoom.scale(initialS)
+		graphG.attr("transform", "translate(" + initialX + " ," + initialY + ") scale(" + initialS + ")");
+	}
+
+	reset(); //removes the random jump after first click issue
+}
+  </script>
+  <script id="adjacency1x1">
+   createAdjacency1x1Matrix();
+  function createAdjacency1x1Matrix() {
+  	var size = {
+  	  width: document.body.clientWidth || window.innerWidth,
+  	  height: document.body.clientHeight || window.innerHeight
+  	}
+
+  	var margin = {top: 0, right: 0, bottom: 0, left: 0},
+  		width = size['width'] - margin.left - margin.right,
+  		height = size['height'] - 1 - margin.top - margin.bottom;
+
+  	var x = d3.scale.linear()
+  		.domain([-width / 2, width / 2])
+  		.range([0, width]);
+
+  	var y = d3.scale.linear()
+  		.domain([-height / 2, height / 2])
+  		.range([height, 0]);
+
+  	var zoom = d3.behavior.zoom()
+  		.x(x)
+  		.y(y)
+  		.scaleExtent([0.1, 32])
+  		.on("zoom", zoom);
+
+  	var canvas = d3.select("#adjacency1x1").append("svg")
+  		.attr("width", width + margin.left + margin.right)
+  		.attr("height", height + margin.top + margin.bottom)
+  		.append("g")
+  		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+  		.call(zoom);
+
+  	var content = canvas.append("g");
+  		
+  	var cellWidth = 25;
+
+  	var data = JSON.parse(document.getElementById('dataAdjacency1x1').innerHTML);
+
+  	/*var i = data['links'].length
+  	while (i--) {
+  		l = data['links'][i];
+  		if (l.relation.startsWith("taxonomy")) {
+  			data['links'].splice(i, 1);
+  		}
+  	}*/
+
+  	//sort nodes
+  	dataNodesA = []
+   	dataNodesB = []
+  	collectedNodes = {}
+  	for (i in data['links']) {
+  		l = data['links'][i];
+  		dataNodesA.push(data['nodes'][l.source]);
+   		dataNodesB.push(data['nodes'][l.target]);
+  		collectedNodes[data['nodes'][l.source].id] = [];
+  		collectedNodes[data['nodes'][l.target].id] = [];
+     		l.source = data['nodes'][l.source].id;
+     		l.target = data['nodes'][l.target].id;
+  	}
+  	dataNodesA = dataNodesA.filter(function(item, pos) {
+   		return dataNodesA.indexOf(item) == pos;
+   	});
+   	dataNodesB = dataNodesB.filter(function(item, pos) {
+   		return dataNodesB.indexOf(item) == pos;
+   	});
+  	for (i in data['nodes']) {
+  		n = data['nodes'][i];
+  		if (!(n.id in collectedNodes)) {
+  			if (data['links'].length == 0) {
+  				if (dataNodesA.length == 0) {
+  					dataNodesA.push(n)
+  				} else if (dataNodesA[0].group = n.group) {
+  					dataNodesA.push(n);
+  				} else {
+  					dataNodesB.push(n);
+  				}
+  			} else {
+  				if(dataNodesA[0].group == n.group) {
+  					dataNodesA.push(n);
+  				}
+  				if(dataNodesB[0].group == n.group) {
+  					dataNodesB.push(n);
+  				}
+  			}
+  			collectedNodes[n.id] = []
+  		}
+  	}
+  	
+  	data['nodes'] = data['nodes'].sort(function(a, b) { 
+  										return d3.ascending(a.id, b.id); 
+  								});
+  		
+  	groupNodes = { }
+  	for (i in data['nodes']) {
+  		n = data['nodes'][i];
+  		id = n.group;
+  		if (id in groupNodes) {
+  			groupNodes[id].push(n);
+  		} else {
+  			groupNodes[id] = [];
+  			groupNodes[id].push(n);
+  		}
+  	}
+  	if(Object.keys(groupNodes).length != 2) {
+  		return;
+  	}
+  						
+  	//sort links for legend
+  	data['links'] = data['links'].sort(function(a, b) { 
+  									if(a.relation.startsWith("taxonomy") && b.relation.startsWith("taxonomy")) {
+  										idA = a.relation.split(".")[1];
+  										idB = b.relation.split(".")[1];
+  										if (idA == idB) {
+  											return d3.ascending(a.relation, b.relation);
+  										}
+  										return d3.ascending(idA, idB);
+  									}
+  									return d3.ascending(a.relation, b.relation); 
+  								});
+  	for (i in data['links']) {
+  		l = data['links'][i];
+  		l.source = dataNodesA.map(function (n) {
+  										return n.id;
+  									}).indexOf(l.source)
+  		l.target = dataNodesB.map(function (n) {
+  										return n.id;
+  									}).indexOf(l.target)
+  	}
+
+  	var linksMap = { };
+  	for (i in data['links']) {
+  		var l = data['links'][i];
+  		linksMap[l.source + ";" + l.target] = l;
+  	}
+  	var cells = [];
+  	for (i in dataNodesA) {
+  		for (j in dataNodesB) {
+  			var id = i + ";" + j;
+  			cells.push({ 
+  						id: id,
+  						source: i, 
+  						target: j, 
+  						relation: id in linksMap ? linksMap[id].relation : ""
+  					});
+  		}
+  	}
+  	/*
+  	c20 = d3.scale.category20();
+  	colorIndex = 0;
+  	var colors = { 
+  			"" : "white",
+  			"equals" : c20(colorIndex++),
+  			"disjoint" : c20(colorIndex++),
+  			"includes" : c20(colorIndex++),
+  			"is_included_in" : c20(colorIndex++),
+  			"overlaps" : c20(colorIndex++)
+  	}
+  	*/
+
+  	var colors = {
+  		"" : "white",
+  		"equals" : "#7f7f7f", //dark gray
+  		"disjoint" : "#c7c7c7", //light gray
+  		"includes" : "#e6550d", //dark orange
+  		"is_included_in" : "#fd8d3c", //light orange
+  		"overlaps" : "#d62728" //red
+  	}
+
+  	//var taxonomyPairColors = ["#393b79", "#5254a3", "#637939", "#8ca252", "#8c6d31", "#bd9e39", "#843c39", "#ad494a", "#7b4173", "#a55194"];
+  	//colorIndex = 0;
+  	for (i in data['links']) {
+  		var l = data['links'][i];
+  		/*if (!(l.relation in colors)) {
+  			colors[l.relation] = taxonomyPairColors[colorIndex];
+  			colorIndex = colorIndex + 1 % 4;
+  		}*/
+  		cells.push({ 
+  					id: l.source + ";" + l.target, 
+  					source: l.source, 
+  					target: l.target, 
+  					relation: l.relation 
+  				});
+  	}
+
+  	var x = d3.scale.linear()
+  		.domain([-width / 2, width / 2])
+  		.range([0, width]);
+
+  	var y = d3.scale.linear()
+  		.domain([-height / 2, height / 2])
+  		.range([height, 0]);
+
+  	adjacencyView = content.append("g")
+  			  .attr("transform", "translate(90,90)");
+  			adjacencyView.selectAll("rect")
+  			  .data(cells)
+  			  .enter()
+  			  .append("rect")
+  			  .attr("width", cellWidth)
+  			  .attr("height", cellWidth)
+  			  .attr("x", function (d) {return d.target * cellWidth})
+  			  .attr("y", function (d) {return d.source * cellWidth})
+  			  .style("fill", function(d) { return colors[d.relation]; })
+  			  .style("stroke", "black")
+  			  .on("mouseover", mouseover)
+  			  .on("mouseout", mouseout);
+  			
+  	var matrixScaleA = d3.scale.ordinal()
+  						.domain(dataNodesA.map(function (n) {
+  											return n.id
+  										}))
+  						.rangePoints([0, dataNodesA.length * cellWidth], 1);
+  	var matrixScaleB = d3.scale.ordinal()
+  						.domain(dataNodesB.map(function (n) {
+  											return n.id
+  										}))
+  						.rangePoints([0, dataNodesB.length * cellWidth], 1);						
+  	/*tickValues = []
+  	for (i = 0; i < data['nodes'].length - 2; i++) { 
+  		tickValues.push(i * cellWidth + 0.5 * cellWidth)
+  	}*/
+  	/*for (i in data['nodes']) {
+  		console.log(i);
+  		console.log(i * cellWidth);
+  		console.log(i * cellWidth - 0.5 * cellWidth);
+  		tickValues.push(i * cellWidth - 0.5 * cellWidth)
+  		
+  	}
+  	console.log(tickValues);*/
+  	xAxis = d3.svg.axis()
+  				.scale(matrixScaleB)
+  				//.tickValues(tickValues)
+  				.orient("top")
+  				.tickSize(0); 
+  	yAxis = d3.svg.axis()
+  				.scale(matrixScaleA)
+  				//.tickValues(tickValues)
+  				.orient("left")
+  				.tickSize(0);    
+  	adjacencyView.append("g")
+  				.call(xAxis)
+  				.selectAll("text")
+  				.style("text-anchor", "end")
+  				.attr("transform", "translate(-8,-10) rotate(90)");
+  	adjacencyView.append("g")
+  				.call(yAxis)
+  				.attr("transform", "translate(-10, 0)");
+  	  
+  	function mouseover(d, i) {
+  		d3.selectAll("div#adjacency1x1 rect")
+  			/*.style("stroke", function(o) {
+  				return (o.source == d.source || o.target == d.target) ? "black" : "gray";
+  			})*/
+  			.style("stroke-width", function(o) {
+  				return (o.source == d.source || o.target == d.target) ? "3px" : "1px";
+  			});
+  		d3.selectAll("div#adjacency1x1 g#legend g text").classed("activeLegend", function(c, i) { 
+  													return c == d.relation;
+  												});
+  		d3.selectAll("div#adjacency1x1 g.tick text").classed("activeTick", function(c, i) {
+  													return dataNodesA[d.source].id == c || dataNodesB[d.target].id == c;
+  												});
+  	}
+
+  	function mouseout() {
+  		d3.selectAll("div#adjacency1x1 rect").style("stroke-width", "1px");
+  		d3.selectAll("div#adjacency1x1 legend g text").classed("activeLegend", false);
+  		d3.selectAll("div#adjacency1x1 g.tick text").classed("activeTick", false);
+  	}
+
+  	content.append("g").append("text").text("From").style("font-weight", "bold").attr("transform", "translate(5, 70)");
+  	content.append("g").append("text").text("To").style("font-weight", "bold").attr("transform", "translate(60, 30)");
+
+  	legend = []
+  	for (c in colors) {
+  		if (c != "") { 
+  			legend.push(c);
+  		}
+  	}
+  	adjacencyViewLegend = content.append("g")
+  		.attr("transform", "translate(" + (((dataNodesA.length + dataNodesB.length) * cellWidth) + 150) + ", 80)")
+  		.attr("id", "legend");
+  	legendGs = adjacencyViewLegend.selectAll("g")
+  	  .data(legend);
+  	legendG = legendGs.enter()
+  	  .append("g")
+  	legendG.append("rect")
+  	  .attr("width", cellWidth)
+  	  .attr("height", cellWidth)
+  	  .attr("x", function (d, i) {return 0; })
+  	  .attr("y", function (d, i) {return i * cellWidth})
+  	  .style("fill", function(d) { return colors[d]; })
+  	  .style("stroke", "black");
+  	legendG.append("text")
+  	  .text(function(d) { return d; })
+  	  .attr("x", function (d, i) { return 40; })
+  	  .attr("y", function (d, i) { return (i * (cellWidth)) + 18; });	
+
+  	function zoom() {
+  		x = d3.event.translate[0]
+  		y = d3.event.translate[1]
+  		content.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+  	}
+
+  	d3.select("div#adjacency1x1 button#reset").on("click", reset);
+  	d3.select("div#adjacency1x1 button#zoomin").on("click", zoomIn);
+  	d3.select("div#adjacency1x1 button#zoomout").on("click", zoomOut);
+
+
+  	var originalWidth = dataNodesB.length * cellWidth + 100;
+  	var originalHeight = dataNodesA.length * cellWidth + 100;
+  	initialScale = Math.min(width/originalWidth, height/originalHeight) * 0.7
+  	var t = d3.transform(canvas.attr("transform")),
+  			initialX = (size['width'] - (initialScale * originalWidth))/2, //t.translate[0],
+  			initialY = 20, //t.translate[1],
+  			initialS = initialScale; //t.scale[0];
+
+  	function zoomIn() {
+  		var t = d3.transform(content.attr("transform")),
+  			x = t.translate[0],
+  			y = t.translate[1],
+  			s = t.scale[0];
+  		var newScale = (s + 0.1);
+  		zoom.scale(newScale)
+  		content.attr("transform", "translate(" + x + " ," + y + ") scale(" + newScale + ")");
+  	}
+
+  	function zoomOut() {
+  		var t = d3.transform(content.attr("transform")),
+  			x = t.translate[0],
+  			y = t.translate[1],
+  			s = t.scale[0];
+  		var newScale = (s - 0.1);
+  		zoom.scale(newScale)
+  		content.attr("transform", "translate(" + x + " ," + y + ") scale(" + newScale + ")");
+  	}
+
+  	function reset() {
+  		initialTranslate = [initialX, initialY];
+  		zoom.translate(initialTranslate);
+  		zoom.scale(initialS)
+  		content.attr("transform", "translate(" + initialX + " ," + initialY + ") scale(" + initialS + ")");
+  	}
+
+  	reset(); //removes the random jump after first click issue
+  }
+  </script>
+  <script id="adjacency">
+   createAdjacencyMatrix();
+function createAdjacencyMatrix() {
+	var size = {
+	  width: document.body.clientWidth || window.innerWidth,
+	  height: document.body.clientHeight || window.innerHeight
+	}
+
+	var margin = {top: 0, right: 0, bottom: 0, left: 0},
+		width = size['width'] - margin.left - margin.right,
+		height = size['height'] - 1 - margin.top - margin.bottom;
+
+	var x = d3.scale.linear()
+		.domain([-width / 2, width / 2])
+		.range([0, width]);
+
+	var y = d3.scale.linear()
+		.domain([-height / 2, height / 2])
+		.range([height, 0]);
+
+	var zoom = d3.behavior.zoom()
+		.x(x)
+		.y(y)
+		.scaleExtent([0.1, 32])
+		.on("zoom", zoom);
+
+	var canvas = d3.select("#adjacency").append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+		.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+		.call(zoom);
+
+	var content = canvas.append("g");
+		
+	var cellWidth = 25;
+
+	var data = JSON.parse(document.getElementById('dataAdjacency').innerHTML);
+
+	//sort nodes
+	for (i in data['links']) {
+		l = data['links'][i];
+		l.source = data['nodes'][l.source].id
+		l.target = data['nodes'][l.target].id
+	}
+	data['nodes'] = data['nodes'].sort(function(a, b) { 
+										return d3.ascending(a.id, b.id); 
+									});
+	//sort links for legend
+	data['links'] = data['links'].sort(function(a, b) { 
+									if(a.relation.startsWith("taxonomy") && b.relation.startsWith("taxonomy")) {
+										idA = a.relation.split(".")[1];
+										idB = b.relation.split(".")[1];
+										if (idA == idB) {
+											return d3.ascending(a.relation, b.relation);
+										}
+										return d3.ascending(idA, idB);
+									}
+									return d3.ascending(a.relation, b.relation); 
+								});
+	for (i in data['links']) {
+		l = data['links'][i];
+		l.source = data['nodes'].map(function (n) {
+										return n.id;
+									}).indexOf(l.source)
+		l.target = data['nodes'].map(function (n) {
+										return n.id;
+									}).indexOf(l.target)
+	}
+
+	var linksMap = { };
+	for (i in data['links']) {
+		var l = data['links'][i];
+		linksMap[l.source + ";" + l.target] = l;
+	}
+	var cells = [];
+	for (i in data['nodes']) {
+		for (j in data['nodes']) {
+			var id = i + ";" + j;
+			cells.push({ 
+						id: id,
+						source: i, 
+						target: j, 
+						relation: id in linksMap ? linksMap[id].relation : ""
+					});
+		}
+	}
+	/*
+	c20 = d3.scale.category20();
+	colorIndex = 0;
+	var colors = { 
+			"" : "white",
+			"equals" : c20(colorIndex++),
+			"disjoint" : c20(colorIndex++),
+			"includes" : c20(colorIndex++),
+			"is_included_in" : c20(colorIndex++),
+			"overlaps" : c20(colorIndex++)
+	}
+	*/
+
+	var colors = {
+		"" : "white",
+		"equals" : "#7f7f7f", //dark gray
+		"disjoint" : "#c7c7c7", //light gray
+		"includes" : "#e6550d", //dark orange
+		"is_included_in" : "#fd8d3c", //light orange
+		"overlaps" : "#d62728" //red
+	}
+
+	var taxonomyPairColors = ["#393b79", "#5254a3", "#637939", "#8ca252", "#8c6d31", "#bd9e39", "#843c39", "#ad494a", "#7b4173", "#a55194"];
+	colorIndex = 0;
+	for (i in data['links']) {
+		var l = data['links'][i];
+		if (!(l.relation in colors)) {
+			colors[l.relation] = taxonomyPairColors[colorIndex];
+			colorIndex = colorIndex + 1 % 4;
+		}
+		cells.push({ 
+					id: l.source + ";" + l.target, 
+					source: l.source, 
+					target: l.target, 
+					relation: l.relation 
+				});
+	}
+
+	var x = d3.scale.linear()
+		.domain([-width / 2, width / 2])
+		.range([0, width]);
+
+	var y = d3.scale.linear()
+		.domain([-height / 2, height / 2])
+		.range([height, 0]);
+
+	adjacencyView = content.append("g")
+			  .attr("transform", "translate(90,90)");
+			adjacencyView.selectAll("rect")
+			  .data(cells)
+			  .enter()
+			  .append("rect")
+			  .attr("width", cellWidth)
+			  .attr("height", cellWidth)
+			  .attr("x", function (d) {return d.target * cellWidth})
+			  .attr("y", function (d) {return d.source * cellWidth})
+			  .style("fill", function(d) { return colors[d.relation]; })
+			  .style("stroke", "black")
+			  .on("mouseover", mouseover)
+			  .on("mouseout", mouseout);
+			
+	var matrixScale = d3.scale.ordinal()
+						.domain(data['nodes'].map(function (n) {
+											return n.id
+										}))
+						.rangePoints([0, data['nodes'].length * cellWidth], 1);
+						
+	/*tickValues = []
+	for (i = 0; i < data['nodes'].length - 2; i++) { 
+		tickValues.push(i * cellWidth + 0.5 * cellWidth)
+	}*/
+	/*for (i in data['nodes']) {
+		console.log(i);
+		console.log(i * cellWidth);
+		console.log(i * cellWidth - 0.5 * cellWidth);
+		tickValues.push(i * cellWidth - 0.5 * cellWidth)
+		
+	}
+	console.log(tickValues);*/
+	xAxis = d3.svg.axis()
+				.scale(matrixScale)
+				//.tickValues(tickValues)
+				.orient("top")
+				.tickSize(0); 
+	yAxis = d3.svg.axis()
+				.scale(matrixScale)
+				//.tickValues(tickValues)
+				.orient("left")
+				.tickSize(0);    
+	adjacencyView.append("g")
+				.call(xAxis)
+				.selectAll("text")
+				.style("text-anchor", "end")
+				.attr("transform", "translate(-8,-10) rotate(90)");
+	adjacencyView.append("g")
+				.call(yAxis)
+				.attr("transform", "translate(-10, -10)");
+	  
+	function mouseover(d, i) {
+		d3.selectAll("div#adjacency rect")
+			/*.style("stroke", function(o) {
+				return (o.source == d.source || o.target == d.target) ? "black" : "gray";
+			})*/
+			.style("stroke-width", function(o) {
+				return (o.source == d.source || o.target == d.target) ? "3px" : "1px";
+			});
+		d3.selectAll("div#adjacency g#legend g text").classed("activeLegend", function(c, i) { 
+													return c == d.relation;
+												});
+		d3.selectAll("div#adjacency g.tick text").classed("activeTick", function(c, i) {
+													return data['nodes'][d.source].id == c || data['nodes'][d.target].id == c;
+												});
+	}
+
+	function mouseout() {
+		d3.selectAll("div#adjacency rect").style("stroke-width", "1px");
+		d3.selectAll("div#adjacency legend g text").classed("activeLegend", false);
+		d3.selectAll("div#adjacency g.tick text").classed("activeTick", false);
+	}
+
+	content.append("g").append("text").text("From").style("font-weight", "bold").attr("transform", "translate(5, 70)");
+	content.append("g").append("text").text("To").style("font-weight", "bold").attr("transform", "translate(60, 30)");
+
+	legend = []
+	for (c in colors) {
+		if (c != "") { 
+			legend.push(c);
+		}
+	}
+	adjacencyViewLegend = content.append("g")
+		.attr("transform", "translate(" + ((data['nodes'].length * cellWidth) + 150) + ", 80)")
+		.attr("id", "legend");
+	legendGs = adjacencyViewLegend.selectAll("g")
+	  .data(legend);
+	legendG = legendGs.enter()
+	  .append("g")
+	legendG.append("rect")
+	  .attr("width", cellWidth)
+	  .attr("height", cellWidth)
+	  .attr("x", function (d, i) {return 0; })
+	  .attr("y", function (d, i) {return i * cellWidth})
+	  .style("fill", function(d) { return colors[d]; })
+	  .style("stroke", "black");
+	legendG.append("text")
+	  .text(function(d) { return d; })
+	  .attr("x", function (d, i) { return 40; })
+	  .attr("y", function (d, i) { return (i * (cellWidth)) + 18; });	
+
+	function zoom() {
+		x = d3.event.translate[0]
+		y = d3.event.translate[1]
+		content.attr("transform", "translate(" + d3.event.translate + ") scale(" + d3.event.scale + ")");
+	}
+
+	d3.select("div#adjacency button#reset").on("click", reset);
+	d3.select("div#adjacency button#zoomin").on("click", zoomIn);
+	d3.select("div#adjacency button#zoomout").on("click", zoomOut);
+
+
+	var originalWidth = data['nodes'].length * cellWidth + 100;
+	var originalHeight = data['nodes'].length * cellWidth + 100;
+	initialScale = Math.min(width/originalWidth, height/originalHeight) * 0.7
+	var t = d3.transform(canvas.attr("transform")),
+			initialX = (size['width'] - (initialScale * originalWidth))/2, //t.translate[0],
+			initialY = 20, //t.translate[1],
+			initialS = initialScale; //t.scale[0];
+
+	function zoomIn() {
+		var t = d3.transform(content.attr("transform")),
+			x = t.translate[0],
+			y = t.translate[1],
+			s = t.scale[0];
+		var newScale = (s + 0.1);
+		zoom.scale(newScale)
+		content.attr("transform", "translate(" + x + " ," + y + ") scale(" + newScale + ")");
+	}
+
+	function zoomOut() {
+		var t = d3.transform(content.attr("transform")),
+			x = t.translate[0],
+			y = t.translate[1],
+			s = t.scale[0];
+		var newScale = (s - 0.1);
+		zoom.scale(newScale)
+		content.attr("transform", "translate(" + x + " ," + y + ") scale(" + newScale + ")");
+	}
+
+	function reset() {
+		initialTranslate = [initialX, initialY];
+		zoom.translate(initialTranslate);
+		zoom.scale(initialS)
+		content.attr("transform", "translate(" + initialX + " ," + initialY + ") scale(" + initialS + ")");
+	}
+
+	reset(); //removes the random jump after first click issue
+}
+  </script>
+ </body>
+</html>
