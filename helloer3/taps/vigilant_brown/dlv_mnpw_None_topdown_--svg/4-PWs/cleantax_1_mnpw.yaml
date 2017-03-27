@@ -1,0 +1,31 @@
+1995.Amauris_damocles:
+  concept: Amauris_damocles
+  group: '1995'
+1997.Amauris_hyalites:
+  concept: Amauris_hyalites
+  group: '1997'
+comb.1997.Amauris_damocles\n1995.Amauris_damocles_subsp_damocles:
+  concept: 1997.Amauris_damocles\n1995.Amauris_damocles_subsp_damocles
+  group: comb
+comb.1997.Amauris_hyalites_subsp_hyalites\n1995.Amauris_damocles_subsp_hyalites:
+  concept: 1997.Amauris_hyalites_subsp_hyalites\n1995.Amauris_damocles_subsp_hyalites
+  group: comb
+comb.1997.Amauris_hyalites_subsp_makuyensis\n1995.Amauris_damocles_subsp_makuyensis:
+  concept: 1997.Amauris_hyalites_subsp_makuyensis\n1995.Amauris_damocles_subsp_makuyensis
+  group: comb
+1997.Amauris_damocles\n1995.Amauris_damocles_subsp_damocles_1995.Amauris_damocles:
+  label: input
+  s: 1997.Amauris_damocles\n1995.Amauris_damocles_subsp_damocles
+  t: 1995.Amauris_damocles
+1997.Amauris_hyalites_1995.Amauris_damocles:
+  label: inferred
+  s: 1997.Amauris_hyalites
+  t: 1995.Amauris_damocles
+1997.Amauris_hyalites_subsp_hyalites\n1995.Amauris_damocles_subsp_hyalites_1997.Amauris_hyalites:
+  label: input
+  s: 1997.Amauris_hyalites_subsp_hyalites\n1995.Amauris_damocles_subsp_hyalites
+  t: 1997.Amauris_hyalites
+1997.Amauris_hyalites_subsp_makuyensis\n1995.Amauris_damocles_subsp_makuyensis_1997.Amauris_hyalites:
+  label: input
+  s: 1997.Amauris_hyalites_subsp_makuyensis\n1995.Amauris_damocles_subsp_makuyensis
+  t: 1997.Amauris_hyalites
